@@ -5,25 +5,48 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
+
+<!-- IF/ELSE CONDITION TO DISABLE SIDEBAR TO WORK -->
+<% if !current_user %>
+<% else %>
+
 <div class="container">
     <div id="sidebar">
-        <div class="current-user">
-          <%= image_tag "mug.jpg" %>
-          <div id="name">Dana J. Wright</div>
-        </div>
-
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Sign Out</a></li>
-        </ul>
+<div class="current-user">
+  <%= image_tag "mug.jpg" %>
+  <div id="name">
+    <!-- IF/ELSE CONDITION TO DISPLAY USERS USERNAME ONCE LOGGED IN -->
+    <% if current_user %>
+      <a><%= current_user.name %></a>
+      <% else %>
+      NOT LOGGED IN
+    <% end %>
+    <!-- END IF/ELSE CONDITION TO DISPLAY USERS USERNAME ONCE LOGGED IN -->
+  </div>
     </div>
+        <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Your Friends</a></li>
+                <li><a href="#">Invite Friends</a></li>
+                <li>
+                  <!-- IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
+                  <% if current_user %>
+                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                    <% else %>
+                    NOT LOGGED IN
+                  <% end %>
+                  <!-- END IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
+                </li>
+            </ul>
+        </div>
+<% end %>
+<!-- END IF/ELSE CONDITION TO DISABLE SIDEBAR TO WORK -->
     <div class="main-content">
-      <a href="#" data-toggle=".container" id="sidebar-toggle">
+      <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -33,7 +56,13 @@
       </div>
     </div>
     <%= yield %>
+
+
+  <!-- END JQUERY TO GRAY-OUT HAMBURGER BUTTON FOR SIDE/MENU BAR -->
 </div>
+
+
+
 
 </body>
 </html>

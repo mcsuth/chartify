@@ -256,3 +256,6 @@ body, html {
 .main-content #sidebar-toggle .bar:last-child{
      margin-bottom: 0;
 }
+.chart {
+  padding: 0 20px 0 50px;
+}
