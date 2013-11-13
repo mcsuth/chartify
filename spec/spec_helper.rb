@@ -1,9 +1,20 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'shoulda-matchers'
+
+OmniAuth.config.test_mode = true
+omniauth_hash =
+  { provider: "facebook",
+    uid: "123545",
+    info: { name: "Jhonny Appleseed",
+            email: "jhonnyapple@gmail.com"},
+    credentials: {token: "testtoken234tsdf"}}
+
+OmniAuth.config.add_mock(:facebook, omniauth_hash)
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
