@@ -11,3 +11,251 @@
  *= require_self
  *= require_tree .
  */
+
+ /*
+SOFT SIDEBAR        #f2f2f2
+SIDEBAR             #fff
+SIDEBAR TXT         #b3b3b1
+LOGO GREY           #898989
+SIDEBAR TXT:HOVER;  #fff
+PINK:               #DF314D;
+ */
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow:scroll;
+    font-family: helvetica;
+    font-weight: 100;
+}
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    -webkit-transition:  left 0.4s ease-in-out;
+    -moz-transition:  left 0.4s ease-in-out;
+    -ms-transition:  left 0.4s ease-in-out;
+    -o-transition:  left 0.4s ease-in-out;
+    transition:  left 0.4s ease-in-out;
+}
+.container.open-sidebar {
+    left: 240px;
+}
+
+.swipe-area {
+    position: absolute;
+    width: 50px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #f3f3f3;
+    z-index: 0;
+}
+#sidebar {
+    background: #fff;
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    left: -240px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.current-user {
+  padding: 15px 20px;
+  height: 30px;
+}
+
+.current-user {
+
+}
+
+#name {
+  font-size: .9em;
+  font-family: 'Helvetica Neue';
+  font-weight: bold;
+  color: #898989;
+  float: left;
+  position: relative;
+  margin-left: 12px;
+  padding-top: 9px;
+}
+
+#fb-button {
+  float: left;
+}
+
+#logo {
+  margin: auto;
+  width: 221px;
+}
+
+#logo img {
+  padding-top: 4px;
+  width: 221px;
+}
+
+#chart-box {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+}
+
+.current-user img {
+  border-radius: 100%;
+  height: 36px;
+  float: left;
+}
+
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    clear: both;
+}
+
+#sidebar ul li {
+    margin: 0;
+}
+#sidebar ul li a {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 100;
+    color: #b3b3b1;
+    text-decoration: none;
+    display: block;
+    /*border-bottom: 1px solid #C9223D;*/
+    -webkit-transition:  background 0.3s ease-in-out;
+    -moz-transition:  background 0.3s ease-in-out;
+    -ms-transition:  background 0.3s ease-in-out;
+    -o-transition:  background 0.3s ease-in-out;
+    transition:  background 0.3s ease-in-out;
+}
+
+#sidebar ul li:hover a {
+    background: #f2f2f2;
+}
+
+#sidebar a:hover {
+  color: #DF314D;
+}
+
+.main-content {
+    padding: 10px;
+    height: 59px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+}
+
+.main-body {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+}
+
+.main-body {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+}
+
+.fb-login {
+}
+
+.main-body-login {
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+    background-attachment: scroll;
+    overflow: scroll;
+    display: block;
+    padding: 10px;
+    background-image:url('carleyJepson.jpg');
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#login-modal {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  height: 190px;
+  background-color: #fff;
+  width: 80%;
+  border-radius: 1%;
+}
+
+
+#login-modal p {
+  font-family: 'verdana';
+  text-align: center;
+  font-style: bold;
+  color: #898989;
+  font-size: 1.3em;
+  margin-top: .6em;
+  padding-top: .9em;
+}
+
+#login-img-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  max-width: 230px;
+}
+
+#login-modal img {
+  width: 100%;
+}
+
+.main-body .content{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-left: 60px;
+    width: 100%;
+}
+.main-body .content h1{
+    font-weight: 100;
+}
+.main-body .content p{
+    width: 100%;
+    line-height: 160%;
+}
+.main-content #sidebar-toggle {
+    background: #DF314D;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    padding: 10px 7px;
+    float: left;
+}
+
+.container {
+  background: #f2f2f2;
+}
+
+.main-content #sidebar-toggle .bar{
+    display: block;
+    width: 18px;
+    margin-bottom: 3px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+}
+.main-content #sidebar-toggle .bar:last-child{
+     margin-bottom: 0;
+}
+.chart {
+  padding: 0 20px 0 50px;
+}

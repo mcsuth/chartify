@@ -1,4 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'],
-           :scope => 'email,user_birthday,read_stream', :display => 'popup'
+           :scope => 'user_about_me,user_actions.news,user_birthday,user_events,user_groups,user_likes,user_online_presence,user_questions,user_religion_politics,user_videos,user_actions.books,user_actions.video,user_checkins,user_friends,user_hometown,user_location,user_photo_video_tags,user_relationship_details,user_status,user_website,user_actions.music,user_activities,user_education_history,user_games_activity,user_interests,user_notes,user_photos,user_relationships,user_subscriptions,user_work_history,friends_about_me,friends_actions.news,friends_birthday,friends_events,friends_hometown,friends_location,friends_photo_video_tags,friends_relationship_details,friends_status,friends_website,friends_actions.books,friends_actions.video,friends_photos,friends_relationships,friends_likes,friends_questions,friends_religion_politics,friends_videos,read_stream,read_friendlists,read_insights,read_requests', :display => 'popup'
 end
