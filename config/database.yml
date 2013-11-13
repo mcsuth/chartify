@@ -7,8 +7,6 @@ development:
   adapter: postgresql
   database: [chartify]
   host: localhost
-  username: alex
-  password: postgresql
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,15 +15,11 @@ test:
   adapter: postgresql
   database: [chartify]
   host: localhost
-  username: alex
-  password: postgresql
-
 
 
 production:
   adapter: postgresql
   database: [chartify]
   host: localhost
-  username: alex
-  password: postgresql
+
 
