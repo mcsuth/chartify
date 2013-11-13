@@ -17,7 +17,7 @@
 <div class="container">
     <div id="sidebar">
 <div class="current-user">
-  <%= image_tag "mug.jpg" %>
+  <%= image_tag current_user.profile_picture %>
   <div id="name">
     <!-- IF/ELSE CONDITION TO DISPLAY USERS USERNAME ONCE LOGGED IN -->
     <% if current_user %>
