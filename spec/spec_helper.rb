@@ -11,8 +11,8 @@ omniauth_hash =
   { provider: "facebook",
     uid: "123545",
     info: { name: "Jhonny Appleseed",
-            email: "jhonnyapple@gmail.com"},
-    credentials: {token: "testtoken234tsdf"}}
+            email: "jhonnysapples@gmail.com"},
+    credentials: {token: "testtoken1234"}}
 
 OmniAuth.config.add_mock(:facebook, omniauth_hash)
 
