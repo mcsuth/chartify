@@ -16,7 +16,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-groupt :develepmont, :test do
+group :develepmont, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'pry'
