@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FbAuth</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>chartify.me</title>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-		<div id="user_nav">
-			<% if current_user %>
-				Signed in as <strong><%= current_user.name %></strong>!
-				<%= link_to "Sign out", signout_path, id: "sign_out" %>
-			<% else %>
-				<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-			<% end %>
-		</div>
 
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, id: "flash_#{name}" %>
-		<% end %>
-		<%= yield %>
-	</div>
+<div class="container">
+    <div id="sidebar">
+        <div class="current-user">
+          <%= image_tag "mug.jpg" %>
+          <div id="name">Dana J. Wright</div>
+        </div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+      <a href="#" data-toggle=".container" id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div id="logo">
+        <%= image_tag "chartify-logo.png" %>
+      </div>
+    </div>
+    <%= yield %>
+</div>
+
 </body>
 </html>
+
