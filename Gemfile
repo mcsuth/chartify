@@ -7,6 +7,8 @@ gem 'rails', '3.2.14'
 
 gem 'pg'
 gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
+gem 'pry'
 
 
 # Gems used only for assets and not required
@@ -14,6 +16,13 @@ gem 'omniauth-facebook', '1.4.0'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+
+group :develepmont, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'pry'
+  gem 'pry-rails'
+end
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
