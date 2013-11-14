@@ -33,4 +33,11 @@ class MainController < ApplicationController
   	render json: @data
   end
 
+  def json
+    # render "data"
+    @friends = current_user.friends
+    render json: @friends
+  end
+
+
 end

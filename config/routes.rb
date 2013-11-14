@@ -4,6 +4,8 @@ FbAuth::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'login', to: 'main#login'
   match 'user_data', to: 'main#user_data'
+  match 'json', to: 'main#json'
+
 
   root to: "main#index"
 end

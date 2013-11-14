@@ -23,49 +23,53 @@ PINK:               #DF314D;
 
 
 body, html {
-    height: 100%;
-    margin: 0;
-    overflow:scroll;
-    font-family: helvetica;
-    font-weight: 100;
+  height: 100%;
+  margin: 0;
+  overflow:scroll;
+  font-family: helvetica;
+  font-weight: 100;
 }
+
 .container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    -webkit-transition:  left 0.4s ease-in-out;
-    -moz-transition:  left 0.4s ease-in-out;
-    -ms-transition:  left 0.4s ease-in-out;
-    -o-transition:  left 0.4s ease-in-out;
-    transition:  left 0.4s ease-in-out;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  -webkit-transition:  left 0.4s ease-in-out;
+  -moz-transition:  left 0.4s ease-in-out;
+  -ms-transition:  left 0.4s ease-in-out;
+  -o-transition:  left 0.4s ease-in-out;
+  transition:  left 0.4s ease-in-out;
 }
+
 .container.open-sidebar {
-    left: 240px;
+  left: 240px;
 }
 
 .swipe-area {
-    position: absolute;
-    width: 50px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background: #f3f3f3;
-    z-index: 0;
+  position: absolute;
+  width: 50px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #f3f3f3;
+  z-index: 0;
 }
+
 #sidebar {
-    background: #fff;
-    position: absolute;
-    width: 240px;
-    height: 100%;
-    left: -240px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  background: #fff;
+  position: absolute;
+  width: 240px;
+  height: 100%;
+  left: -240px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 .current-user {
   padding: 15px 20px;
-  height: 30px;
+  height: 39px;
+  margin-bottom: 12px;
 }
 
 .current-user {
@@ -79,6 +83,7 @@ body, html {
   color: #898989;
   float: left;
   position: relative;
+  width: 147px;
   margin-left: 12px;
   padding-top: 9px;
 }
@@ -110,81 +115,179 @@ body, html {
 }
 
 #sidebar ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  clear: both;
 }
 
 #sidebar ul li {
-    margin: 0;
+  margin: 0;
 }
+
 #sidebar ul li a {
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: 100;
-    color: #b3b3b1;
-    text-decoration: none;
-    display: block;
-    /*border-bottom: 1px solid #C9223D;*/
-    -webkit-transition:  background 0.3s ease-in-out;
-    -moz-transition:  background 0.3s ease-in-out;
-    -ms-transition:  background 0.3s ease-in-out;
-    -o-transition:  background 0.3s ease-in-out;
-    transition:  background 0.3s ease-in-out;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 100;
+  color: #b3b3b1;
+  text-decoration: none;
+  display: block;
+  /*border-bottom: 1px solid #C9223D;*/
+  -webkit-transition:  background 0.3s ease-in-out;
+  -moz-transition:  background 0.3s ease-in-out;
+  -ms-transition:  background 0.3s ease-in-out;
+  -o-transition:  background 0.3s ease-in-out;
+  transition:  background 0.3s ease-in-out;
 }
 
 #sidebar ul li:hover a {
-    background: #f2f2f2;
+  background: #f2f2f2;
 }
 
 #sidebar a:hover {
   color: #DF314D;
 }
 
+#friend {
+  height: 90px;
+  margin-left: 27px;
+}
+
+.friend img {
+  border-radius: 100%;
+  height: 27px;
+  float: left;
+}
+
+#friend-name {
+  font-size: .8em;
+  font-family: 'arial';
+  color: #898989;
+  float: left;
+  position: relative;
+  width: 160px;
+  padding-top: 6px;
+  margin-left: 12px;
+}
+
+#friend-header {
+  font: .75em Arial;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #b3b3b1;
+  clear: both;
+}
+
+#search {
+  width: 179px;
+}
+
+#searcharea {
+  /*  background: #f2f2f2;*/
+  margin-left: 21px;
+}
+
+#search-header {
+  font: .75em Arial;
+  text-transform: uppercase;
+  color: #b3b3b1;
+  clear: both;
+}
+
+#searcharea input {
+  margin-top: 9px;
+  clear: both;
+  margin-bottom: 9px;
+}
+
+.searchresults {
+  height: 303px;
+  overflow: scroll;
+}
+
+.searchresults li {
+  height: 36px;
+  text-decoration: none;
+  display: block;
+  padding-left: 6px;
+  padding-top: 9px;
+  clear: both;
+  /*border-bottom: 1px solid #C9223D;*/
+  -webkit-transition:  background 0.3s ease-in-out;
+  -moz-transition:  background 0.3s ease-in-out;
+  -ms-transition:  background 0.3s ease-in-out;
+  -o-transition:  background 0.3s ease-in-out;
+  transition:  background 0.3s ease-in-out;
+}
+
+.searchresults li:hover {
+  background: #f2f2f2;
+}
+
+.searchresults li:hover {
+  color: #DF314D;
+}
+
+.searchresults img {
+  border-radius: 100%;
+  height: 27px;
+  float: left;
+}
+
+#searchresults-name {
+  font-size: .8em;
+  font-family: 'arial';
+  color: #898989;
+  float: left;
+  position: relative;
+  width: 160px;
+  margin-left: 12px;
+  padding-top: 5px;
+}
+
 .main-content {
-    padding: 10px;
-    height: 59px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    position: relative;
+  padding: 10px;
+  height: 59px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
 }
 
 .main-body {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
 }
 
 .main-body {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
 }
 
 .fb-login {
 }
 
 .main-body-login {
-    width: 100%;
-    min-height: 600px;
-    position: relative;
-    background-attachment: scroll;
-    overflow: scroll;
-    display: block;
-    padding: 10px;
-    background-image:url('carleyJepson.jpg');
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  width: 100%;
+  min-height: 600px;
+  position: relative;
+  background-attachment: scroll;
+  overflow: scroll;
+  display: block;
+  padding: 10px;
+  background-image:url('carleyJepson.jpg');
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 #login-modal {
@@ -196,7 +299,6 @@ body, html {
   width: 80%;
   border-radius: 1%;
 }
-
 
 #login-modal p {
   font-family: 'verdana';
@@ -219,26 +321,29 @@ body, html {
   width: 100%;
 }
 
-.main-body .content{
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding-left: 60px;
-    width: 100%;
+.main-body .content {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 60px;
+  width: 100%;
 }
-.main-body .content h1{
-    font-weight: 100;
+
+.main-body .content h1 {
+  font-weight: 100;
 }
-.main-body .content p{
-    width: 100%;
-    line-height: 160%;
+
+.main-body .content p {
+  width: 100%;
+  line-height: 160%;
 }
+
 .main-content #sidebar-toggle {
-    background: #DF314D;
-    border-radius: 3px;
-    display: block;
-    position: relative;
-    padding: 10px 7px;
-    float: left;
+  background: #DF314D;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  padding: 10px 7px;
+  float: left;
 }
 
 .container {
@@ -246,16 +351,17 @@ body, html {
 }
 
 .main-content #sidebar-toggle .bar{
-    display: block;
-    width: 18px;
-    margin-bottom: 3px;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 1px;
+  display: block;
+  width: 18px;
+  margin-bottom: 3px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
 }
 .main-content #sidebar-toggle .bar:last-child{
-     margin-bottom: 0;
+  margin-bottom: 0;
 }
+
 .chart {
   padding: 0 20px 0 50px;
 }

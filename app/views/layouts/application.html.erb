@@ -5,65 +5,57 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 
-
-<!-- IF/ELSE CONDITION TO DISABLE SIDEBAR TO WORK -->
-<% if !current_user %>
-<% else %>
-
 <div class="container">
-    <div id="sidebar">
-<div class="current-user">
-  <%= image_tag current_user.profile_picture %>
-  <div id="name">
-    <!-- IF/ELSE CONDITION TO DISPLAY USERS USERNAME ONCE LOGGED IN -->
-    <% if current_user %>
-      <a><%= current_user.name %></a>
-      <% else %>
-      NOT LOGGED IN
-    <% end %>
-    <!-- END IF/ELSE CONDITION TO DISPLAY USERS USERNAME ONCE LOGGED IN -->
-  </div>
-    </div>
-        <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Your Friends</a></li>
-                <li><a href="#">Invite Friends</a></li>
-                <li>
-                  <!-- IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
-                  <% if current_user %>
-                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-                    <% else %>
-                    NOT LOGGED IN
-                  <% end %>
-                  <!-- END IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
-                </li>
-            </ul>
-        </div>
-<% end %>
-<!-- END IF/ELSE CONDITION TO DISABLE SIDEBAR TO WORK -->
-    <div class="main-content">
-      <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
-      <div id="logo">
-        <%= image_tag "chartify-logo.png" %>
+  <div id="sidebar">
+    <div class="current-user">
+      <%= image_tag current_user.profile_picture %>
+      <div id="name">
+        <%= current_user.name %>
       </div>
     </div>
-    <%= yield %>
+    <div id="friend">
+      <div id="friend-header">friends on chartify</div>
+      <ul>
+        <li>
+          <div class="friend">
+          <%= image_tag "mug.jpg" %>
+          <div id="friend-name">Dana J. Wright</div>
+          </div>
+        </li>
+        <li>
+          <!-- IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
+          <% if current_user %>
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <% else %>
+            NOT LOGGED IN
+          <% end %>
+          <!-- END IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
+        </li>
+      </ul>
 
-
-  <!-- END JQUERY TO GRAY-OUT HAMBURGER BUTTON FOR SIDE/MENU BAR -->
+    </div>
+    <div id="searcharea">
+      <label id="search-header" for="search">invite friends</label>
+      <input type="search" name="search" id="search" placeholder="start typing friend" />
+      <div id="searchField">
+      </div>
+    </div>
+  </div>
+  <div class="main-content">
+    <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div id="logo">
+      <%= image_tag "chartify-logo.png" %>
+    </div>
+  </div>
+  <%= yield %>
 </div>
-
-
-
 
 </body>
 </html>
-
