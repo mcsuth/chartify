@@ -11,10 +11,12 @@
 <div class="container">
   <div id="sidebar">
     <div class="current-user">
+      <% if current_user %>
       <%= image_tag current_user.profile_picture %>
       <div id="name">
         <%= current_user.name %>
       </div>
+      <% end %>
     </div>
     <div id="friend">
       <div id="friend-header">friends on chartify</div>
@@ -24,13 +26,12 @@
           <%= image_tag "mug.jpg" %>
           <div id="friend-name">Dana J. Wright</div>
           </div>
+          <br>
         </li>
         <li>
           <!-- IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
           <% if current_user %>
             <%= link_to "Sign out", signout_path, id: "sign_out" %>
-          <% else %>
-            NOT LOGGED IN
           <% end %>
           <!-- END IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
         </li>
