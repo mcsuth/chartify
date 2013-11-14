@@ -40,8 +40,7 @@ class MainController < ApplicationController
   end
 
   def friends_on_chartify
-    users = User.all
-    users.delete(current_user)
+    users = User.all - [current_user]
     friends = current_user.friends
 
     @friends_on_chartify = []
@@ -57,8 +56,7 @@ class MainController < ApplicationController
   end
 
   def friends_off_chartify
-    users = User.all
-    users.delete(current_user)
+    users = User.all - [current_user]
     friends = current_user.friends
 
     friends_on_chartify = []
