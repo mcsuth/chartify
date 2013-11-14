@@ -5,7 +5,6 @@ gem 'rails', '3.2.14'
 group :develepmont, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'pry'
   gem 'pry-rails'
 end
 

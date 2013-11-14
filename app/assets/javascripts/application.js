@@ -15,3 +15,4 @@
 //= require chart.min.js
 //= require jquery.touchSwipe.js
 //= require sidebar.js
+//= require 03partygraph.js
