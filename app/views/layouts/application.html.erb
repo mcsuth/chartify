@@ -19,23 +19,20 @@
         <%= current_user.name %>
       </div>
       <% end %>
+      <% if current_user %>
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% end %>
     </div>
     <div id="friend">
-      <div id="friend-header">friends on chartify</div>
+      <div id="friend-header"></div>
       <ul>
         <li>
-          <div class="friend">
-          <%= image_tag "mug.jpg" %>
-          <div id="friend-name">Dana J. Wright</div>
+          <div id="chartifysearch">
+          <label id="chartify-header" for="chartifysearch">friends on chartify</label>
+          <input type="chartifysearch" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
+          <div id="chartifyField">
           </div>
           <br>
-        </li>
-        <li>
-          <!-- IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
-          <% if current_user %>
-            <%= link_to "Sign out", signout_path, id: "sign_out" %>
-          <% end %>
-          <!-- END IF/ELSE CONDITION TO DISPLAY LINK TO LOG OUT IF SIGNED IN -->
         </li>
       </ul>
 

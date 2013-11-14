@@ -21,7 +21,6 @@ SIDEBAR TXT:HOVER;  #fff
 PINK:               #DF314D;
  */
 
-
 body, html {
   height: 100%;
   margin: 0;
@@ -85,7 +84,8 @@ body, html {
   position: relative;
   width: 147px;
   margin-left: 12px;
-  padding-top: 9px;
+  padding-top: 3px;
+  margin-bottom: -2px;
 }
 
 #fb-button {
@@ -102,16 +102,20 @@ body, html {
   width: 221px;
 }
 
-#chart-box {
-  width: 300px;
-  height: 300px;
-  background-color: #fff;
-}
-
 .current-user img {
   border-radius: 100%;
   height: 36px;
   float: left;
+}
+
+#sign_out {
+  margin-left: 12px;
+  font-size: .7em;
+  text-decoration: none;
+}
+
+#sign_out:hover {
+  color: #DF314D;
 }
 
 #sidebar ul {
@@ -119,33 +123,6 @@ body, html {
   padding: 0;
   list-style: none;
   clear: both;
-}
-
-#sidebar ul li {
-  margin: 0;
-}
-
-#sidebar ul li a {
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: 100;
-  color: #b3b3b1;
-  text-decoration: none;
-  display: block;
-  /*border-bottom: 1px solid #C9223D;*/
-  -webkit-transition:  background 0.3s ease-in-out;
-  -moz-transition:  background 0.3s ease-in-out;
-  -ms-transition:  background 0.3s ease-in-out;
-  -o-transition:  background 0.3s ease-in-out;
-  transition:  background 0.3s ease-in-out;
-}
-
-#sidebar ul li:hover a {
-  background: #f2f2f2;
-}
-
-#sidebar a:hover {
-  color: #DF314D;
 }
 
 #friend {
@@ -170,7 +147,7 @@ body, html {
   margin-left: 12px;
 }
 
-#friend-header {
+#chartify-header {
   font: .75em Arial;
   text-transform: uppercase;
   margin-bottom: 12px;
