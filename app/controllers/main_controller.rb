@@ -39,6 +39,39 @@ class MainController < ApplicationController
     render json: @friends
   end
 
+  def friends_on_chartify
+    users = User.all
+    users.delete(current_user)
+    friends = current_user.friends
+
+    @friends_on_chartify = []
+    friends.each do |friend|
+      users.each do |user|
+        if friend['facebook_id'] == user['uid']
+          @friends_on_chartify << friend
+        end
+      end
+    end
+
+    render json: @friends_on_chartify
+  end
+
+  def friends_off_chartify
+    users = User.all
+    users.delete(current_user)
+    @friends_off_chartify = current_user.friends
+
+    @friends_off_chartify.each do |friend|
+      users.each do |user|
+        if friend['facebook_id'] == user['uid']
+          @friends_off_chartify.delete(friend)
+        end
+      end
+    end
+
+    render json: @friends_off_chartify
+  end
+
   def vulgar
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""

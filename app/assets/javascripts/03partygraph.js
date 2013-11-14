@@ -1,5 +1,6 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
+  console.log("funny graph is being built");
   $.getJSON("/funny", function(data2){
     // console.log(data2);
     var array_values2 = new Array();

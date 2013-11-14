@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require chart.min.js
+//= require jquery.touchSwipe.js
+//= require sidebar.js
