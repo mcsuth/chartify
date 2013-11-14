@@ -118,7 +118,9 @@ class MainController < ApplicationController
       end
     end
 
-    @likes = {likes: likes}
+    names = messages.split(" ").count("name")
+
+    @likes = {names: name}
     render json: @likes
   end
 

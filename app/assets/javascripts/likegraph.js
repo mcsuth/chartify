@@ -1,6 +1,9 @@
 $(document).ready(function() {
-  $.getJSON("/likes", function(data){
-    var value = @likes[:likes].length
+  $.getJSON("/likes", function(count){
+    var value = new Array();
+      for (var key in count) {
+        array_values.push(count[key])
+      }
     console.log(value)
 
 
