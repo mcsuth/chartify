@@ -11,7 +11,9 @@
 <% if !current_user %>
 <% else %>
 <div class="container">
+  
   <div id="sidebar">
+
     <div class="current-user">
       <% if current_user %>
       <%= image_tag current_user.profile_picture %>
@@ -23,6 +25,7 @@
         <%= link_to "Sign out", signout_path, id: "sign_out" %>
       <% end %>
     </div>
+
     <div id="friend">
       <div id="friend-header"></div>
       <ul>
@@ -35,8 +38,8 @@
           <br>
         </li>
       </ul>
-
     </div>
+
     <div id="searcharea">
       <label id="search-header" for="search">invite friends</label>
       <input type="search" name="search" id="search" placeholder="start typing friend" />
