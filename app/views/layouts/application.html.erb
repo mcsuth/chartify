@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<% if !current_user %>
+<% else %>
 <div class="container">
   <div id="sidebar">
     <div class="current-user">
@@ -45,6 +47,7 @@
       </div>
     </div>
   </div>
+<% end %>
   <div class="main-content">
     <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
       <span class="bar"></span>
