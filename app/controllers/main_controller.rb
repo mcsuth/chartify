@@ -59,15 +59,18 @@ class MainController < ApplicationController
   def friends_off_chartify
     users = User.all
     users.delete(current_user)
-    @friends_off_chartify = current_user.friends
+    friends = current_user.friends
 
-    @friends_off_chartify.each do |friend|
+    friends_on_chartify = []
+    friends.each do |friend|
       users.each do |user|
         if friend['facebook_id'] == user['uid']
-          @friends_off_chartify.delete(friend)
+          friends_on_chartify << friend
         end
       end
     end
+
+    @friends_off_chartify = friends - friends_on_chartify
 
     render json: @friends_off_chartify
   end
