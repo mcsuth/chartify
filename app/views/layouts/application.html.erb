@@ -11,7 +11,7 @@
 <% if !current_user %>
 <% else %>
 <div class="container">
-  
+
   <div id="sidebar">
 
     <div class="current-user">
@@ -26,18 +26,11 @@
       <% end %>
     </div>
 
-    <div id="friend">
-      <div id="friend-header"></div>
-      <ul>
-        <li>
-          <div id="chartifysearch">
-          <label id="chartify-header" for="chartifysearch">friends on chartify</label>
-          <input type="chartifysearch" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
-          <div id="chartifyField">
-          </div>
-          <br>
-        </li>
-      </ul>
+    <div id="chartifyarea">
+      <label id="chartify-header" for="chartifysearch">friends on chartify</label>
+      <input type="chartifysearch" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
+      <div id="chartifyField">
+      </div>
     </div>
 
     <div id="searcharea">
@@ -46,6 +39,7 @@
       <div id="searchField">
       </div>
     </div>
+
   </div>
 <% end %>
   <div class="main-content">

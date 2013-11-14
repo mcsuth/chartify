@@ -19,26 +19,27 @@ $(document).ready(function(){
       }
   });
 
-  var searchField = $('#chartifysearch').val();
-  var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
-  $.getJSON('friends_on_chartify', function(data) {
-    var output = '<ul class="searchresults">';
-    $.each(data, function(key, val) {
-      if ((val.username.search(myExp) != -1)) {
-        output += '<li>';
-        output += '<img src="' + val["profile_picture"] + '">'
-        output += '<div id="searchresults-name">' + val.username +'</div>';
-        output += '</li>';
-      }
-    });
-    output += '</ul>';
-    console.log(output)
-    $('#chartifyField').html(output);
-  }); //get JSON
+  // var searchField = $('#chartifysearch').val();
+  // var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
+  // $.getJSON('friends_on_chartify', function(data) {
+  //   var output = '<ul class="searchresults">';
+  //   $.each(data, function(key, val) {
+  //     if ((val.username.search(myExp) != -1)) {
+  //       output += '<li>';
+  //       output += '<img src="' + val["profile_picture"] + '">'
+  //       output += '<div id="searchresults-name">' + val.username +'</div>';
+  //       output += '</li>';
+  //     }
+  //   });
+  //   output += '</ul>';
+  //   console.log(output)
+  //   $('#chartifyField').html(output);
+  // }); //get JSON
 
   $('#chartifysearch').keyup(function() {
 
-    var searchField = $('#search').val();
+    var searchField = $('#chartifysearch').val();
+    console.log($('#chartifysearch').val())
     var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
     $.getJSON('friends_on_chartify', function(data) {
       var output = '<ul class="searchresults">';
