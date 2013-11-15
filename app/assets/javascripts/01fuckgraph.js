@@ -1,6 +1,10 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $.getJSON("/vulgar", function(data){
+  $('#chart').prepend('<img id="theImg1" src="assets/ajax-loader.gif">')
+
+  $.getJSON("/vulgar")
+    .done(function(data){
+    console.log("Fetched Vulgar!!!")
     // console.log(data);
     var array_values = new Array();
       for (var key in data) {
@@ -18,9 +22,9 @@ $(document).ready(function() {
       labels : ["FUCK", "SHIT", "CUNT", "MOTHER FUCKER"],
       datasets : [
                   {
-                      fillColor : "rgba(151,187,205,0.5)",
-                      strokeColor : "rgba(151,187,205,1)",
-                      data : array_values
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    data : array_values
                   },
                  ]
     };
@@ -33,6 +37,9 @@ $(document).ready(function() {
     new Chart(ctx).Bar(data, options);
     // console.log(ctx)
 
-
+});
+  $(document).ajaxSuccess(function() {
+    // alert("An individual AJAX call has completed successfully");
+    $("#theImg1").hide();
+    })
   })
-})

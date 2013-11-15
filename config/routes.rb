@@ -12,6 +12,8 @@ FbAuth::Application.routes.draw do
   match 'funny', to: 'main#funny'
   match 'likes', to: 'main#likes'
   match 'party', to: 'main#party'
+  match 'photos', to: 'main#photos'
+  match 'locations', to: 'main#locations'
 
   root to: "main#index"
 end

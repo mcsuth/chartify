@@ -104,7 +104,7 @@ class MainController < ApplicationController
   def vulgar
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
-    likes = []
+    # likes = []
     next_page = posts.next_page
 
     while !next_page.empty?
@@ -131,7 +131,7 @@ class MainController < ApplicationController
   def funny
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
-    likes = []
+    # likes = []
     next_page = posts.next_page
 
     while !next_page.empty?
@@ -155,18 +155,98 @@ class MainController < ApplicationController
   end
 
   def party
-    @party = current_user.facebook.get_connections("me", "events?since=1349654400")
+    party = current_user.facebook.get_connections("me", "events?since=1349654400")
+    events = []
+    rsvps = []
+    next_page = party.next_page
 
-    # party.each do |yay|
-    #   party = { events: yay['name'], }
-    # end
+    while !next_page.empty?
+      party += next_page
+      next_page = next_page.next_page
+    end
 
-    render json: @party
+    party.each do |event|
+      events << event["name"]
+      rsvps << event["rsvp_status"]
+    end
+
+    maybe = rsvps.count("unsure")
+    yes = rsvps.count("attending")
+    no = rsvps.count("decline")
+    @data = {maybe: maybe, yes: yes, no: no}
+    render json: @data
+  end
+
+  def photos
+    photos = current_user.facebook.get_connections("me", "photos")
+    albums = current_user.facebook.get_connections("me", "albums")
+
+    phot = []
+    albs = []
+    likes = []
+
+    next_page = photos.next_page
+
+    while !next_page.empty?
+      photos += next_page
+      next_page = next_page.next_page
+
+      albums += next_page
+      next_page = next_page.next_page
+    end
+
+    photos.each do |photo|
+      phot << photo["picture"]
+    end
+    albums.each do |album|
+      albs << album["name"]
+      if album['likes']
+        the_likes = album["likes"]["data"]
+        the_likes.each do |each_like|
+          likes << each_like["name"]
+        end
+      end
+    end
+
+    photocounts = phot.count
+    photolikes = likes.count
+    albumcounts = albs.count
+    @photos = {how_many_photos_tagged_in: photocounts, num_of_people_who_liked_the_photos_you_posted_on_FB: photolikes, num_of_albums_you_have: albumcounts}
+    render json: @photos
+  end
+
+  def locations
+    friendsevents = current_user.facebook.get_connections("me", "friends?fields=checkins")
+    friendcheckins = []
+    next_page = friendsevents.next_page
+    while !next_page.empty?
+      friendsevents += next_page
+      next_page = next_page.next_page
+    end
+    friendsevents.each do |events|
+      friendcheckins << events["id"]
+    end
+
+    locations = current_user.facebook.get_connections("me", "checkins")
+    places = []
+    next_page = locations.next_page
+    while !next_page.empty?
+      locations += next_page
+      next_page = next_page.next_page
+    end
+    locations.each do |location|
+      places << location["place"]
+    end
+
+    traveled = places.count
+    friendsevent = friendcheckins.count
+
+    @locations = { places_traveled: traveled}
+    render json: friendcheckins
   end
 
   def likes
     posts = current_user.facebook.get_connections("me", "posts")
-    messages = ""
     likes = []
     next_page = posts.next_page
     while !next_page.empty?
@@ -180,9 +260,7 @@ class MainController < ApplicationController
       end
     end
 
-    names = messages.split(" ").count("name")
-
-    @likes = {names: name}
+    @likes = {likes: likes}
     render json: @likes
   end
 

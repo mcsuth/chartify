@@ -1,39 +1,41 @@
-    //////////////////////GETTING JSON DATA//////////////////////
+//////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  console.log("funny graph is being built");
-  $.getJSON("/funny", function(data2){
-    // console.log(data2);
-    var array_values2 = new Array();
+  $('#chart').prepend('<img id="theImg3" src="assets/ajax-loader.gif">')
+
+  $.getJSON("/party")
+    .done(function(data2){
+    console.log("Fetched Party-Arty")
+    var array_values3= new Array();
       for (var key in data2) {
-        array_values2.push(data2[key])
+        array_values3.push(data2[key])
       }
-    console.log(array_values2)
+    console.log(array_values3)
     // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
 
-    //////////////////////BAR GRAPH//////////////////////
-    //Get the context of the canvas element we want to select
-    var ctx2 = $("#myChart2").get(0).getContext("2d");
+//////////////////////RADAR GRAPH//////////////////////
+    //Get context with jQuery - using jQuery's .get() method.
+    var ctx3 = $("#myChart3").get(0).getContext("2d");
 
     //Create the data object to pass to the chart
-    var data2 = {
-      labels : ["FUNNY", "LOL", "HAHA", "LMAO"],
+    var data3 = {
+      labels : ["Meh. MAYBE","SOCIAL","HERMIT"],
       datasets : [
-                  {
-                      fillColor : "rgba(151,187,205,0.5)",
-                      strokeColor : "rgba(151,187,205,1)",
-                      data : array_values2
-                  },
-                 ]
-    };
-
-    //The options we are going to pass to the chart
-    options = {
-    };
+        {
+          fillColor : "rgba(255,0,0,0.5)",
+          strokeColor : "rgba(255,0,0,1)",
+          pointColor : "rgba(255,0,0,1)",
+          pointStrokeColor : "#fff",
+          data : array_values3
+        }
+      ]
+    }
 
     //Create the chart
-    new Chart(ctx2).Bar(data2, options);
-    // console.log(ctx2)
+    new Chart(ctx3).Radar(data3);
+});
 
-
+  $(document).ajaxSuccess(function() {
+    // alert("An individual AJAX call has completed successfully");
+    $("#theImg3").hide();
+    })
   })
-})

@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
+  <link href="css/main.css" rel="stylesheet" media="screen, projection">
 </head>
 <body>
 
@@ -28,7 +30,7 @@
 
     <div id="chartifyarea">
       <label id="chartify-header" for="chartifysearch">friends on chartify</label>
-      <input type="chartifysearch" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
+      <input type="search" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
       <div id="chartifyField">
       </div>
     </div>
