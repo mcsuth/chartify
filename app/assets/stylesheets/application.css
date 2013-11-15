@@ -41,8 +41,36 @@ body, html {
   transition:  left 0.4s ease-in-out;
 }
 
+.container {
+  background: #f2f2f2;
+}
+
+/***********************GENERAL SIDEBAR ***************************/
+
 .container.open-sidebar {
   left: 240px;
+}
+
+.main-content #sidebar-toggle {
+  background: #DF314D;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  padding: 10px 7px;
+  float: left;
+}
+
+.main-content #sidebar-toggle .bar{
+  display: block;
+  width: 18px;
+  margin-bottom: 3px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+.main-content #sidebar-toggle .bar:last-child{
+  margin-bottom: 0;
 }
 
 .swipe-area {
@@ -65,14 +93,22 @@ body, html {
   -moz-box-sizing: border-box;
 }
 
-.current-user {
-  padding: 15px 20px;
-  height: 39px;
-  margin-bottom: 12px;
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  clear: both;
 }
 
-.current-user {
+/*************************SIDEBAR CONTENT***********************/
 
+/* current user */
+
+.current-user {
+  margin-left: 1em;
+  height: 3.3em;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 #name {
@@ -83,23 +119,9 @@ body, html {
   float: left;
   position: relative;
   width: 147px;
-  margin-left: 12px;
+  margin-left: 1em;
   padding-top: 3px;
   margin-bottom: -2px;
-}
-
-#fb-button {
-  float: left;
-}
-
-#logo {
-  margin: auto;
-  width: 221px;
-}
-
-#logo img {
-  padding-top: 4px;
-  width: 221px;
 }
 
 .current-user img {
@@ -109,51 +131,83 @@ body, html {
 }
 
 #sign_out {
-  margin-left: 12px;
+  margin-left: 1.3em;
   font-size: .7em;
   text-decoration: none;
+  font-family: 'arial'
 }
 
 #sign_out:hover {
   color: #DF314D;
 }
 
-#sidebar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  clear: both;
-}
+/*friends on chartify*/
 
-#friend {
-  height: 90px;
-  margin-left: 27px;
-}
-
-.friend img {
-  border-radius: 100%;
-  height: 27px;
-  float: left;
-}
-
-#friend-name {
-  font-size: .8em;
-  font-family: 'arial';
-  color: #898989;
-  float: left;
-  position: relative;
-  width: 160px;
-  padding-top: 6px;
-  margin-left: 12px;
+#chartifyarea {
+  margin-left: 21px;
+  height: 40%;
 }
 
 #chartify-header {
   font: .75em Arial;
   text-transform: uppercase;
-  margin-bottom: 12px;
   color: #b3b3b1;
   clear: both;
 }
+
+#chartifysearch {
+  width: 179px;
+}
+
+#chartifyarea input {
+  margin-top: 9px;
+  clear: both;
+  margin-bottom: 9px;
+}
+
+#chartifyField {
+  position: relative;
+  height: 10em;
+  overflow: scroll;
+}
+
+.chartifyresults li {
+  height: 1.3em;
+  text-decoration: none;
+  display: block;
+  padding-top: 9px;
+  clear: both;
+  /*border-bottom: 1px solid #C9223D;*/
+  -webkit-transition:  background 0.3s ease-in-out;
+  -moz-transition:  background 0.3s ease-in-out;
+  -ms-transition:  background 0.3s ease-in-out;
+  -o-transition:  background 0.3s ease-in-out;
+  transition:  background 0.3s ease-in-out;
+}
+
+.chartifyresults li:hover {
+  background: #f2f2f2;
+  color: #DF314D;
+}
+
+.chartifyresults img {
+  border-radius: 100%;
+  height: 27px;
+  float: left;
+}
+
+#chartifyresults-name {
+  font-size: .8em;
+  font-family: 'helvetica';
+  color: #898989;
+  float: left;
+  position: relative;
+  width: 160px;
+  margin-left: 1em;
+  padding-top: 5px;
+}
+
+/*invite friends*/
 
 #search {
   width: 179px;
@@ -177,16 +231,16 @@ body, html {
   margin-bottom: 9px;
 }
 
-.searchresults {
-  height: 303px;
+#searchField {
+  position: relative;
+  height: 12em;
   overflow: scroll;
 }
 
 .searchresults li {
-  height: 36px;
+  height: 30px;
   text-decoration: none;
   display: block;
-  padding-left: 6px;
   padding-top: 9px;
   clear: both;
   /*border-bottom: 1px solid #C9223D;*/
@@ -218,9 +272,12 @@ body, html {
   float: left;
   position: relative;
   width: 160px;
-  margin-left: 12px;
+  margin-left: 1em;
+;
   padding-top: 5px;
 }
+
+/*************************MAIN BODY**********************/
 
 .main-content {
   padding: 10px;
@@ -249,9 +306,6 @@ body, html {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   position: relative;
-}
-
-.fb-login {
 }
 
 .main-body-login {
@@ -314,30 +368,17 @@ body, html {
   line-height: 160%;
 }
 
-.main-content #sidebar-toggle {
-  background: #DF314D;
-  border-radius: 3px;
-  display: block;
-  position: relative;
-  padding: 10px 7px;
-  float: left;
+#logo {
+  margin: auto;
+  width: 221px;
 }
 
-.container {
-  background: #f2f2f2;
+#logo img {
+  padding-top: 4px;
+  width: 221px;
 }
 
-.main-content #sidebar-toggle .bar{
-  display: block;
-  width: 18px;
-  margin-bottom: 3px;
-  height: 2px;
-  background-color: #fff;
-  border-radius: 1px;
-}
-.main-content #sidebar-toggle .bar:last-child{
-  margin-bottom: 0;
-}
+
 
 .chart {
   padding: 0 20px 0 50px;

@@ -22,7 +22,7 @@ $(document).ready(function(){
   var searchField = $('#chartifysearch').val();
   var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
   $.getJSON('friends_on_chartify', function(data) {
-    var output = '<ul class="searchresults">';
+    var output = '<ul class="chartifyresults">';
     $.each(data, function(key, val) {
       if ((val.username.search(myExp) != -1)) {
         output += '<li>';
