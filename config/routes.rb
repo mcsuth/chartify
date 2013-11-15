@@ -7,6 +7,7 @@ FbAuth::Application.routes.draw do
   match 'json', to: 'main#json'
   match 'friends_on_chartify', to: 'main#friends_on_chartify'
   match 'friends_off_chartify', to: 'main#friends_off_chartify'
+  match 'likes_per_friend', to: 'main#likes_per_friend'
   match 'vulgar', to: 'main#vulgar'
   match 'funny', to: 'main#funny'
   match 'likes', to: 'main#likes'

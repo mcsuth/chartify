@@ -73,6 +73,34 @@ class MainController < ApplicationController
     render json: @friends_off_chartify
   end
 
+  def likes_per_friend
+    posts = current_user.facebook.get_connections("me", "posts")
+    friends = current_user.friends
+    likes = []
+    next_page = posts.next_page
+    while !next_page.empty?
+      posts += next_page
+      next_page = next_page.next_page
+    end
+
+    posts.each do |post|
+      if post['likes']
+        likes << post['likes']['data']
+      end
+    end
+    likes = likes.flatten
+
+    @likes_per_friend = []
+    friends.each do |friend|
+      @likes_per_friend << {username: friend[:username], 
+        likes: likes.count { |x| x['id'] == friend[:facebook_id] }}
+    end
+
+    @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
+
+    render json: @likes_per_friend
+  end
+
   def vulgar
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
