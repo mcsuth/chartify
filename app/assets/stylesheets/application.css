@@ -377,9 +377,16 @@ body, html {
   padding-top: 4px;
   width: 221px;
 }
-
-
-
+#theImg1,#theImg2,#theImg3,#theImg4,#theImg5 {
+  padding: 50px;
+  margin: 20px;
+}
+#chart {
+  text-align: center;
+/*  border: 1px solid red;*/
+  position: absolute;
+  z-index: 5;
+}
 .chart {
   padding: 0 20px 0 50px;
 }
