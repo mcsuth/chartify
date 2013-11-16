@@ -96,10 +96,70 @@ class MainController < ApplicationController
         likes: likes.count { |x| x['id'] == friend[:facebook_id] }}
     end
 
-    @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
+    sort = @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
 
-    render json: @likes_per_friend
+    top_5 = sort[0..4]
+
+    names = []
+
+    values = []
+
+    top_5.each do |name|
+      names << name[:username]
+      values << name[:likes]
+    end
+
+    @top_5 = [names,values]
+    render json: @top_5
   end
+
+
+  def likes
+    posts = current_user.facebook.get_connections("me", "posts")
+    messages = ""
+    likes = []
+    next_page = posts.next_page
+    while !next_page.empty?
+      posts += next_page
+      next_page = next_page.next_page
+    end
+
+    posts.each do |post|
+      if post['likes']
+        likes += post['likes']['data']
+      end
+    end
+
+    amount = likes.count
+
+    @likes = amount
+    render json: @likes
+  end
+
+
+
+  def comments
+    posts = current_user.facebook.get_connections("me", "posts")
+    messages = ""
+    comments = []
+    next_page = posts.next_page
+    while !next_page.empty?
+      posts += next_page
+      next_page = next_page.next_page
+    end
+
+    posts.each do |post|
+      if post['comments']
+        comments += post['comments']['data']
+      end
+    end
+
+
+    @total = comments.length
+    render json: @total
+  end
+
+
 
   def vulgar
     posts = current_user.facebook.get_connections("me", "posts")
@@ -315,25 +375,6 @@ class MainController < ApplicationController
 
     gender = {males: male.round(2), females: female.round(2)}
     render json: gender
-  end
-
-  def likes
-    posts = current_user.facebook.get_connections("me", "posts")
-    likes = []
-    next_page = posts.next_page
-    while !next_page.empty?
-      posts += next_page
-      next_page = next_page.next_page
-    end
-
-    posts.each do |post|
-      if post['likes']
-        likes += post['likes']['data']
-      end
-    end
-
-    @likes = {likes: likes}
-    render json: @likes
   end
 
 end
