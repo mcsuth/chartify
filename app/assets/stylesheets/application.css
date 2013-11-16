@@ -126,7 +126,7 @@ body, html {
 
 .current-user img {
   border-radius: 100%;
-  height: 36px;
+  height: 2.5em;
   float: left;
 }
 
@@ -134,7 +134,8 @@ body, html {
   margin-left: 1.3em;
   font-size: .7em;
   text-decoration: none;
-  font-family: 'arial'
+  font-family: 'arial';
+  color: #b3b3b1;
 }
 
 #sign_out:hover {
@@ -160,23 +161,28 @@ body, html {
 }
 
 #chartifyarea input {
-  margin-top: 9px;
+  margin-top: 1em;
   clear: both;
-  margin-bottom: 9px;
+  margin-bottom: 1em;
 }
 
 #chartifyField {
   position: relative;
-  height: 10em;
+  height: 9.6em;
   overflow: scroll;
 }
 
 .chartifyresults li {
-  height: 1.3em;
+  height: 2em;
   text-decoration: none;
   display: block;
-  padding-top: 9px;
+  padding-left: .6em;
+  padding-top: .3em;
   clear: both;
+  -moz-border-radius-topleft: 50px;
+  border-top-left-radius: 50px;
+  -moz-border-radius-bottomleft: 50px;
+  border-bottom-left-radius: 50px;
   /*border-bottom: 1px solid #C9223D;*/
   -webkit-transition:  background 0.3s ease-in-out;
   -moz-transition:  background 0.3s ease-in-out;
@@ -190,9 +196,15 @@ body, html {
   color: #DF314D;
 }
 
+.chartifyresults li a {
+  text-decoration: none;
+  display: block;
+  color: #b3b3b1;
+}
+
 .chartifyresults img {
   border-radius: 100%;
-  height: 27px;
+  height: 1.6em;
   float: left;
 }
 
@@ -204,7 +216,7 @@ body, html {
   position: relative;
   width: 160px;
   margin-left: 1em;
-  padding-top: 5px;
+  padding-top: 6px;
 }
 
 /*invite friends*/
@@ -216,46 +228,50 @@ body, html {
 #searcharea {
   /*  background: #f2f2f2;*/
   margin-left: 21px;
+  position: absolute;
+  bottom: 0;
+  height: 14em;
+  background-color: #fff;
+}
+
+#searchField {
+  position: relative;
+  height: 8.3em;
+  overflow: scroll;
 }
 
 #search-header {
   font: .75em Arial;
   text-transform: uppercase;
   color: #b3b3b1;
+  margin-top: .9em;
   clear: both;
 }
 
 #searcharea input {
-  margin-top: 9px;
+  margin-top: .9em;
   clear: both;
-  margin-bottom: 9px;
+  margin-bottom: .9em;
 }
 
-#searchField {
-  position: relative;
-  height: 12em;
-  overflow: scroll;
+#searchresults-checkbox {
+  margin-right: .5em;
 }
 
 .searchresults li {
-  height: 30px;
-  text-decoration: none;
+  height: 2em;
   display: block;
-  padding-top: 9px;
+  padding-top: .3em;
   clear: both;
-  /*border-bottom: 1px solid #C9223D;*/
-  -webkit-transition:  background 0.3s ease-in-out;
-  -moz-transition:  background 0.3s ease-in-out;
-  -ms-transition:  background 0.3s ease-in-out;
-  -o-transition:  background 0.3s ease-in-out;
-  transition:  background 0.3s ease-in-out;
 }
 
-.searchresults li:hover {
-  background: #f2f2f2;
+.searchresults li a {
+    text-decoration: none;
+    display: block;
+    color: #b3b3b1;
 }
 
-.searchresults li:hover {
+.searchresults li a:hover {
   color: #DF314D;
 }
 
@@ -271,7 +287,7 @@ body, html {
   color: #898989;
   float: left;
   position: relative;
-  width: 160px;
+  width: 11.5em;
   margin-left: 1em;
   padding-top: 5px;
 }
