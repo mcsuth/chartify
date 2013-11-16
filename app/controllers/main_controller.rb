@@ -92,19 +92,78 @@ class MainController < ApplicationController
 
     @likes_per_friend = []
     friends.each do |friend|
-      @likes_per_friend << {username: friend[:username], 
+      @likes_per_friend << {username: friend[:username],
         likes: likes.count { |x| x['id'] == friend[:facebook_id] }}
     end
 
-    @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
+    sort = @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
 
-    render json: @likes_per_friend
+    top_5 = sort[0..4]
+
+    names = []
+
+    values = []
+
+    top_5.each do |name|
+      names << name[:username]
+      values << name[:likes]
+    end
+
+    @top_5 = [names,values]
+    render json: @top_5
   end
+
+
+  def likes
+    posts = current_user.facebook.get_connections("me", "posts")
+    messages = ""
+    likes = []
+    next_page = posts.next_page
+    while !next_page.empty?
+      posts += next_page
+      next_page = next_page.next_page
+    end
+
+    posts.each do |post|
+      if post['likes']
+        likes += post['likes']['data']
+      end
+    end
+
+    amount = likes.count
+
+    @likes = amount
+    render json: @likes
+  end
+
+
+
+  def comments
+    posts = current_user.facebook.get_connections("me", "posts")
+    messages = ""
+    comments = []
+    next_page = posts.next_page
+    while !next_page.empty?
+      posts += next_page
+      next_page = next_page.next_page
+    end
+
+    posts.each do |post|
+      if post['comments']
+        comments += post['comments']['data']
+      end
+    end
+
+
+    @total = comments.length
+    render json: @total
+  end
+
+
 
   def vulgar
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
-    # likes = []
     next_page = posts.next_page
 
     while !next_page.empty?
@@ -131,7 +190,6 @@ class MainController < ApplicationController
   def funny
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
-    # likes = []
     next_page = posts.next_page
 
     while !next_page.empty?
@@ -218,11 +276,6 @@ class MainController < ApplicationController
   def locations
     friendsevents = current_user.facebook.get_connections("me", "friends?fields=checkins")
     friendcheckins = []
-    next_page = friendsevents.next_page
-    while !next_page.empty?
-      friendsevents += next_page
-      next_page = next_page.next_page
-    end
     friendsevents.each do |events|
       friendcheckins << events["id"]
     end
@@ -237,31 +290,91 @@ class MainController < ApplicationController
     locations.each do |location|
       places << location["place"]
     end
+    # puts friendcheckins
 
     traveled = places.count
     friendsevent = friendcheckins.count
 
-    @locations = { places_traveled: traveled}
-    render json: friendcheckins
+    @locations = { places_traveled: traveled, friends_travled: friendsevent}
+    render json: @locations
   end
 
-  def likes
-    posts = current_user.facebook.get_connections("me", "posts")
-    likes = []
-    next_page = posts.next_page
-    while !next_page.empty?
-      posts += next_page
-      next_page = next_page.next_page
-    end
+  def cultured
+    languages = current_user.facebook.get_connections("me", "friends?fields=languages")
+    lingo = []
 
-    posts.each do |post|
-      if post['likes']
-        likes += post['likes']['data']
+    languages.each do |language|
+      if language["languages"]
+        langs = language["languages"]
+        langs.each do |lang|
+          lingo << lang["name"]
+        end
       end
     end
 
-    @likes = {likes: likes}
-    render json: @likes
+    lingos = lingo.join(" ")
+    unique_languages = lingo.join(" ").downcase.split(" ").uniq.sort.count
+
+    result = lingos.split.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    top_3_langs = result.sort_by{|k,v| -v}.first(3)
+    # [1][1]
+    render json: top_3_langs
+
+  end
+
+  def user_likes
+    music = current_user.facebook.get_connections("me", "music").count
+    books = current_user.facebook.get_connections("me", "books").count
+    movies = current_user.facebook.get_connections("me", "movies").count
+    @user_likes = { music: music, books: books, movies: movies }
+    render json: @user_likes
+  end
+
+  def hometowns
+    hometowns = current_user.facebook.get_connections("me", "friends?fields=location")
+    home = []
+
+    hometowns.each do |hometown|
+      if hometown["location"]
+        home << hometown["location"]["name"]
+      end
+    end
+    hometown = home.join(",")
+    result = hometown.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    top_3_home = result.sort_by{|k,v| -v}.first(3)
+    render json: top_3_home
+  end
+
+  def love
+    relationships = current_user.facebook.get_connections("me", "friends?fields=name,gender,relationship_status")
+    love = []
+    relationships.each do |relationship|
+      if relationship["relationship_status"]
+        love << relationship["relationship_status"]
+      end
+    end
+
+    relation = love.join(",")
+    status = relation.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+
+    render json: status
+  end
+
+  def gender
+    genders = current_user.facebook.get_connections("me", "friends?fields=name,gender")
+    sex = []
+    genders.each do |gender|
+      if gender["gender"]
+        sex << gender["gender"]
+      end
+    end
+    numfriends = current_user.friends[1]["id"]
+
+    male = sex.count("male").to_f/numfriends.to_f
+    female = sex.count("female").to_f/numfriends.to_f
+
+    gender = {males: male.round(2), females: female.round(2)}
+    render json: gender
   end
 
 end

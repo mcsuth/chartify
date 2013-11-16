@@ -20,26 +20,26 @@ $(document).ready(function() {
     var data4 = [
           {
             value : array_values4[0],
-            color : "#F38630",
+            color:"#F7464A",
             label : 'U WERE TAGGED',
             labelColor : 'white',
-            labelFontSize : '9',
+            labelFontSize : '15',
             labelAlign: 'center'
           },
           {
             value : array_values4[1],
-            color : "#E0E4CC",
+            color : "#E2EAE9",
             label : 'WHO LIKED UR SHIT',
             labelColor : '#444',
-            labelFontSize : '9',
+            labelFontSize : '15',
             labelAlign: 'center'
           },
           {
             value : 5,
-            color : "#69D2E7",
+            color : "#D4CCC5",
             label : 'YOUR ALBUMS',
             labelColor : 'rgb(0,0,0)',
-            labelFontSize : '9',
+            labelFontSize : '15',
             labelAlign: 'center'
           }
       ]

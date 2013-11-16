@@ -20,11 +20,17 @@ $(document).ready(function() {
     var data5 = [
       {
         value: array_values5[0],
-        color:"#F7464A"
+        label: 'Your Checkins',
+        color:"#F7464A",
+        labelFontSize : '15',
+        labelAlign: 'center'
       },
       {
-        value : 50,
-        color : "#E2EAE9"
+        value : array_values5[1],
+        label: 'Friends\' Checkins',
+        color : "#E2EAE9",
+        labelFontSize : '15',
+        labelAlign: 'center'
       },
       // {
       //   value : 100,
@@ -42,7 +48,7 @@ $(document).ready(function() {
     ]
 
     //Create the chart
-    new Chart(ctx5).Doughnut(data5);
+    new Chart(ctx5).Pie(data5);
 });
 
   $(document).ajaxSuccess(function() {

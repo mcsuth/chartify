@@ -22,8 +22,8 @@ $(document).ready(function() {
       labels : ["FUNNY", "LOL", "HAHA", "LMAO"],
       datasets : [
                   {
-                    fillColor : "rgba(151,187,205,0.5)",
-                    strokeColor : "rgba(151,187,205,1)",
+                    fillColor : '#F7464A',
+                    strokeColor : '#FFF',
                     data : array_values2
                   },
                  ]
