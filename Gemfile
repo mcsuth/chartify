@@ -14,7 +14,7 @@ gem 'rails_12factor'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
 gem 'uglifier', '>= 1.0.3'
-# gem 'jquery-rails'
+gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
