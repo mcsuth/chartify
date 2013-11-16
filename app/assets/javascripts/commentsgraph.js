@@ -1,26 +1,26 @@
 $(document).ready(function() {
-  $.getJSON("/likes", function(datal){
-    console.log(datal);
-    var valuel = datal;
+  $.getJSON("/comments", function(datac){
+    console.log(datac);
+    var valuec = datac;
 
 
-    console.log(valuel)
+    console.log(valuec)
 
 
-    var ctxlike = $("#likes").get(0).getContext("2d");
+    var ctxlike = $("#comments").get(0).getContext("2d");
 
-    var datal = {
-      labels : ["Total Likes"],
+    var datac = {
+      labels : ["Total comments"],
       datasets : [
                   {
                       fillColor : "rgba(151,187,205,0.5)",
                       strokeColor : "rgba(151,187,205,1)",
-                      data : [valuel]
+                      data : [valuec]
                   },
                  ]
     };
 
-    var step = valuel + 50;
+    var step = valuec + 50;
 
     options = {
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
     };
 
-    new Chart(ctxlike).Bar(datal, options);
+    new Chart(ctxlike).Bar(datac, options);
 
 
   })
