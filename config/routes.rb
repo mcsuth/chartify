@@ -11,7 +11,7 @@ FbAuth::Application.routes.draw do
   match 'vulgar', to: 'main#vulgar'
   match 'funny', to: 'main#funny'
   match 'likes', to: 'main#likes'
-  match 'comments' to: 'main#comments'
+  match 'comments', to: 'main#comments'
   match 'party', to: 'main#party'
   match 'photos', to: 'main#photos'
   match 'locations', to: 'main#locations'
