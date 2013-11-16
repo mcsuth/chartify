@@ -27,7 +27,7 @@ $(document).ready(function(){
       if ((val.username.search(myExp) != -1)) {
         output += '<li>';
         output += '<img src="' + val["profile_picture"] + '">'
-        output += '<div id="searchresults-name">' + val.username +'</div>';
+        output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
         output += '</li>';
       }
     });
@@ -47,12 +47,12 @@ $(document).ready(function(){
         if ((val.username.search(myExp) != -1)) {
           output += '<li>';
           output += '<img src="' + val["profile_picture"] + '">'
-          output += '<div id="searchresults-name">' + val.username +'</div>';
+          output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
           output += '</li>';
         }
-      });
+      })
       output += '</ul>';
-      console.log(output)
+      console.log("The output is", output)
       $('#chartifyField').html(output);
     }); //get JSON
   });
@@ -66,7 +66,8 @@ $(document).ready(function(){
       if ((val.username.search(myExp) != -1)) {
         output += '<li>';
         output += '<img src="' + val["profile_picture"] + '">'
-        output += '<div id="searchresults-name">' + val.username +'</div>';
+        output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
+        output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
         output += '</li>';
       }
     });
@@ -85,7 +86,8 @@ $(document).ready(function(){
         if ((val.username.search(myExp) != -1)) {
           output += '<li>';
           output += '<img src="' + val["profile_picture"] + '">'
-          output += '<div id="searchresults-name">' + val.username +'</div>';
+          output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
+          output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
           output += '</li>';
         }
       });
