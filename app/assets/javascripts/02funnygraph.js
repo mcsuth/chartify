@@ -1,6 +1,10 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $.getJSON("/funny", function(data2){
+  $('#chart').prepend('<img id="theImg2" src="assets/ajax-loader.gif">')
+
+  $.getJSON("/funny")
+    .done(function(data2){
+    console.log("Fetched Funny")
     // console.log(data2);
     var array_values2 = new Array();
       for (var key in data2) {
@@ -18,9 +22,9 @@ $(document).ready(function() {
       labels : ["FUNNY", "LOL", "HAHA", "LMAO"],
       datasets : [
                   {
-                      fillColor : "rgba(151,187,205,0.5)",
-                      strokeColor : "rgba(151,187,205,1)",
-                      data : array_values2
+                    fillColor : '#F7464A',
+                    strokeColor : '#FFF',
+                    data : array_values2
                   },
                  ]
     };
@@ -32,7 +36,9 @@ $(document).ready(function() {
     //Create the chart
     new Chart(ctx2).Bar(data2, options);
     // console.log(ctx2)
-
-
+});
+  $(document).ajaxSuccess(function() {
+    // alert("An individual AJAX call has completed successfully");
+    $("#theImg2").hide();
+    })
   })
-})
