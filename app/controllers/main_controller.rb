@@ -370,10 +370,35 @@ class MainController < ApplicationController
         home << hometown["location"]["name"]
       end
     end
-    hometown = home.join(",")
-    result = hometown.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    top_3_home = result.sort_by{|k,v| -v}.first(3)
-    render json: top_3_home
+
+    hashoflocations = home.sort.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    sorted = hashoflocations.sort_by{|k,v| -v}.first(3)
+    x = current_user.friends.count
+    y = home.count
+
+
+    x = current_user.friends.count
+    y = home.count
+
+    # Place Names
+    names = []
+    numbers = []
+
+    total = sorted[0][1] + sorted[1][1] + sorted[2][1]
+    othernum = ( y - total)
+
+    names << [sorted[0][0]]
+    names  << [sorted[1][0]]
+    names << [sorted[2][0]]
+    names << ["The Middle of Nowhere"]
+
+    numbers << ([sorted[0][1]])
+    numbers  << [sorted[1][1]]
+    numbers << [sorted[2][1]]
+    numbers << [othernum]
+    hash = { top_places: names, number: numbers}
+    render json: hash
+
   end
 
   def love
