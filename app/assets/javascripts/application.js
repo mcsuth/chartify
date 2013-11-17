@@ -15,24 +15,4 @@
 //= require chart.min.js
 //= require jquery.touchSwipe.js
 //= require sidebar.js
-//= require 01fuckgraph.js
-//= require 02funnygraph.js
-//= require 03partygraph.js
-//= require 04photosgraph.js
-//= require 05locationgraph.js
-//= require commentsgraph.js
-//= require likegraph.js
-//= require likepf.js
-//= require 06graph.js
-//= require 07graph.js
-//= require 08graph.js
-//= require 09graph.js
-//= require 10graph.js
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 105a3ebaecb31b5c9d94e354df719c3c97449ea5
