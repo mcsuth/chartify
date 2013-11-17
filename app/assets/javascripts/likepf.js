@@ -13,8 +13,8 @@ $(document).ready(function() {
       labels : valuelpf[0],
       datasets : [
                   {
-                      fillColor : "rgba(151,187,205,0.5)",
-                      strokeColor : "rgba(151,187,205,1)",
+                      fillColor : "#F7464A",
+                      strokeColor : "#F7464A",
                       data : valuelpf[1]
                   },
                  ]
