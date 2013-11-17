@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+  //GET BROWSER WINDOW HEIGHT
+  var currHeight = $(window).height();
+  //SET HEIGHT OF SIDEBAR AND CONTENT ELEMENTS
+  $('#sidebar, .main-content').css('height', currHeight);
+
+  //ON RESIZE OF WINDOW
+  $(window).resize(function() {
+
+    //GET NEW HEIGHT
+    var currHeight = $(window).height();
+    //RESIZE BOTH ELEMENTS TO NEW HEIGHT
+    $('#sidebar, .main-content').css('height', currHeight);
+
+  });
+
   $("[data-toggle]").click(function() {
     var toggle_el = $(this).data("toggle");
     $(toggle_el).toggleClass("open-sidebar");
@@ -57,50 +72,65 @@ $(document).ready(function(){
     }); //get JSON
   });
 
+FB.init({
+  appId:'500853090012906',
+  cookie:true,
+  status:true,
+  xfbml:true
+});
 
-  var searchField = $('#search').val();
-  var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
-  $.getJSON('friends_off_chartify', function(data) {
-    var output = '<ul class="searchresults">';
-    $.each(data, function(key, val) {
-      if ((val.username.search(myExp) != -1)) {
-        output += '<li>';
-        output += '<img src="' + val["profile_picture"] + '">'
-        output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
-        output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
-        output += '</li>';
-      }
-    });
-    output += '</ul>';
-    console.log(output)
-    $('#searchField').html(output);
-  }); //get JSON
-
-  $('#search').keyup(function() {
-
-    var searchField = $('#search').val();
-    var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
-    $.getJSON('friends_off_chartify', function(data) {
-      var output = '<ul class="searchresults">';
-      $.each(data, function(key, val) {
-        if ((val.username.search(myExp) != -1)) {
-          output += '<li>';
-          output += '<img src="' + val["profile_picture"] + '">'
-          output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
-          output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
-          output += '</li>';
-        }
-      });
-      output += '</ul>';
-      console.log(output)
-      $('#searchField').html(output);
-    }); //get JSON
+function FacebookInviteFriends() {
+  FB.ui({
+  method: 'apprequests',
+  message: 'Chartify makes charts and graphs out of your facebook stuff, pretty cool! http://chartify.me'
   });
+}
 
 
-//binding friend search field
 
-//keyup happens when someone lifts up a key on the keyboard
+//   var searchField = $('#search').val();
+//   var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
+//   $.getJSON('friends_off_chartify', function(data) {
+//     var output = '<ul class="searchresults">';
+//     $.each(data, function(key, val) {
+//       if ((val.username.search(myExp) != -1)) {
+//         output += '<li>';
+//         output += '<img src="' + val["profile_picture"] + '">'
+//         output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
+//         output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
+//         output += '</li>';
+//       }
+//     });
+//     output += '</ul>';
+//     console.log(output)
+//     $('#searchField').html(output);
+//   }); //get JSON
+
+//   $('#search').keyup(function() {
+
+//     var searchField = $('#search').val();
+//     var myExp = new RegExp(searchField, "i"); //search function: looks for a string and finds text inside the string and returns its position. Can search for txt inside a string or use a regular expression, which allows for case insensitive
+//     $.getJSON('friends_off_chartify', function(data) {
+//       var output = '<ul class="searchresults">';
+//       $.each(data, function(key, val) {
+//         if ((val.username.search(myExp) != -1)) {
+//           output += '<li>';
+//           output += '<img src="' + val["profile_picture"] + '">'
+//           output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
+//           output += '<input type="checkbox" name="test" id="searchresults-checkbox">';
+//           output += '</li>';
+//         }
+//       });
+//       output += '</ul>';
+//       console.log(output)
+//       $('#searchField').html(output);
+//     }); //get JSON
+//   });
+
+
+// //binding friend search field
+
+// //keyup happens when someone lifts up a key on the keyboard
 
 
 
