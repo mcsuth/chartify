@@ -22,6 +22,7 @@ PINK:               #DF314D;
  */
 
 body, html {
+  background: #F2F2F2;
   height: 100%;
   margin: 0;
   overflow:scroll;

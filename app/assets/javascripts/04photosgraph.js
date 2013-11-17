@@ -25,14 +25,14 @@ $(document).ready(function() {
             labelFontSize : '15',
             labelAlign: 'center'
           },
-          {
-            value : array_values4[1],
-            color : "#E2EAE9",
-            label : 'WHO LIKED UR SHIT',
-            labelColor : '#444',
-            labelFontSize : '15',
-            labelAlign: 'center'
-          },
+          // {
+          //   value : array_values4[1],
+          //   color : "#E2EAE9",
+          //   label : 'WHO LIKED UR SHIT',
+          //   labelColor : '#444',
+          //   labelFontSize : '15',
+          //   labelAlign: 'center'
+          // },
           {
             value : 5,
             color : "#D4CCC5",
