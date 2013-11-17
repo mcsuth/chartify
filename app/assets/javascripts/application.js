@@ -29,10 +29,4 @@
 //= require 09graph.js
 //= require 10graph.js
 
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> 105a3ebaecb31b5c9d94e354df719c3c97449ea5
