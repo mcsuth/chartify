@@ -15,7 +15,7 @@ class MainController < ApplicationController
   	messages = ""
   	likes = []
   	next_page = posts.next_page
-  	while !next_page.empty?
+  	while !next_page.to_a.empty?
   		posts += next_page
   		next_page = next_page.next_page
   	end
@@ -78,7 +78,7 @@ class MainController < ApplicationController
     friends = current_user.friends
     likes = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -150,7 +150,7 @@ class MainController < ApplicationController
     messages = ""
     likes = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -174,7 +174,7 @@ class MainController < ApplicationController
     messages = ""
     comments = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -197,7 +197,7 @@ class MainController < ApplicationController
     messages = ""
     next_page = posts.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -223,7 +223,7 @@ class MainController < ApplicationController
     messages = ""
     next_page = posts.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -249,7 +249,7 @@ class MainController < ApplicationController
     rsvps = []
     next_page = party.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       party += next_page
       next_page = next_page.next_page
     end
@@ -276,7 +276,7 @@ class MainController < ApplicationController
 
     next_page = photos.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       photos += next_page
       next_page = next_page.next_page
 
@@ -314,7 +314,7 @@ class MainController < ApplicationController
     locations = current_user.facebook.get_connections("me", "checkins")
     places = []
     next_page = locations.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       locations += next_page
       next_page = next_page.next_page
     end
