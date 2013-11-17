@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart').prepend('<img id="theImg2" src="assets/ajax-loader.gif">')
 
   $.getJSON("/funny")
     .done(function(data2){
@@ -37,8 +36,4 @@ $(document).ready(function() {
     new Chart(ctx2).Bar(data2, options);
     // console.log(ctx2)
 });
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg2").hide();
-    })
   })

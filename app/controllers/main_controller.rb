@@ -15,7 +15,7 @@ class MainController < ApplicationController
   	messages = ""
   	likes = []
   	next_page = posts.next_page
-  	while !next_page.empty?
+  	while !next_page.to_a.empty?
   		posts += next_page
   		next_page = next_page.next_page
   	end
@@ -78,7 +78,7 @@ class MainController < ApplicationController
     friends = current_user.friends
     likes = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -113,13 +113,44 @@ class MainController < ApplicationController
     render json: @top_5
   end
 
+  def tags_per_friend
+    photos = current_user.facebook.get_connections("me", "photos")
+    friends = current_user.friends
+    tags = []
+
+    next_page = photos.next_page
+    while !next_page.to_a.empty?
+      photos += next_page
+      next_page = next_page.next_page
+    end
+
+    photos.each do |photo|
+      if photo['tags']
+        tags << photo['tags']['data']
+      end
+    end
+
+    tags.flatten!
+
+    @tags_per_friend = []
+    friends.each do |friend|
+      @tags_per_friend << {username: friend[:username],
+        tags: tags.count { |x| x['id'] == friend[:facebook_id]}}
+    end
+
+    @tags_per_friend.sort! { |x,y| y[:tags] <=> x[:tags] }
+    @tags_per_friend = @tags_per_friend[0..4]
+
+    render json: @tags_per_friend
+  end
+
 
   def likes
     posts = current_user.facebook.get_connections("me", "posts")
     messages = ""
     likes = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -143,7 +174,7 @@ class MainController < ApplicationController
     messages = ""
     comments = []
     next_page = posts.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -166,7 +197,7 @@ class MainController < ApplicationController
     messages = ""
     next_page = posts.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -192,7 +223,7 @@ class MainController < ApplicationController
     messages = ""
     next_page = posts.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       posts += next_page
       next_page = next_page.next_page
     end
@@ -218,7 +249,7 @@ class MainController < ApplicationController
     rsvps = []
     next_page = party.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       party += next_page
       next_page = next_page.next_page
     end
@@ -245,7 +276,7 @@ class MainController < ApplicationController
 
     next_page = photos.next_page
 
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       photos += next_page
       next_page = next_page.next_page
 
@@ -283,7 +314,7 @@ class MainController < ApplicationController
     locations = current_user.facebook.get_connections("me", "checkins")
     places = []
     next_page = locations.next_page
-    while !next_page.empty?
+    while !next_page.to_a.empty?
       locations += next_page
       next_page = next_page.next_page
     end
@@ -339,10 +370,35 @@ class MainController < ApplicationController
         home << hometown["location"]["name"]
       end
     end
-    hometown = home.join(",")
-    result = hometown.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    top_3_home = result.sort_by{|k,v| -v}.first(3)
-    render json: top_3_home
+
+    hashoflocations = home.sort.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    sorted = hashoflocations.sort_by{|k,v| -v}.first(3)
+    x = current_user.friends.count
+    y = home.count
+
+
+    x = current_user.friends.count
+    y = home.count
+
+    # Place Names
+    names = []
+    numbers = []
+
+    total = sorted[0][1] + sorted[1][1] + sorted[2][1]
+    othernum = ( y - total)
+
+    names << [sorted[0][0]]
+    names  << [sorted[1][0]]
+    names << [sorted[2][0]]
+    names << ["The Middle of Nowhere"]
+
+    numbers << ([sorted[0][1]])
+    numbers  << [sorted[1][1]]
+    numbers << [sorted[2][1]]
+    numbers << [othernum]
+    hash = { top_places: names, number: numbers}
+    render json: hash
+
   end
 
   def love

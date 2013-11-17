@@ -13,20 +13,19 @@ $(document).ready(function() {
       labels : ["Total comments"],
       datasets : [
                   {
-                      fillColor : "rgba(151,187,205,0.5)",
-                      strokeColor : "rgba(151,187,205,1)",
+                      fillColor : "#F7464A",
+                      strokeColor : "#F7464A",
                       data : [valuec]
                   },
                  ]
     };
 
-    var step = valuec + 50;
 
     options = {
 
     showLabelsOnBars:true,
     barLabelFontColor:"blue",
-    scaleShowLabels : false,
+
 
 
     //Boolean - If we want to override with a hard coded scale
@@ -36,7 +35,7 @@ $(document).ready(function() {
     //Number - The number of steps in a hard coded scale
     scaleSteps : 1,
     //Number - The value jump in the hard coded scale
-    scaleStepWidth : step,
+    scaleStepWidth : valuec,
     //Number - The scale starting value
     scaleStartValue : 0,
 

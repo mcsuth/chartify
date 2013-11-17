@@ -22,6 +22,11 @@ PINK:               #DF314D;
  */
 
 body, html {
+<<<<<<< HEAD
+=======
+  background: #F2F2F2;
+  height: 100%;
+>>>>>>> 1640a95710fc825c81f58c6a36080847bc2a5d20
   margin: 0;
   font-family: helvetica;
   font-weight: 100;
@@ -460,8 +465,12 @@ html {
 .chart {
   padding: 0 20px 0 50px;
 }
+<<<<<<< HEAD
 
 p {
+=======
+#graph {
+>>>>>>> 1640a95710fc825c81f58c6a36080847bc2a5d20
   margin: 20px;
   width: 400px;
   text-align: center;

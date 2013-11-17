@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart2').prepend('<img id="theImg4" src="assets/ajax-loader.gif">')
 
   $.getJSON("/photos")
     .done(function(data4){
@@ -26,14 +25,14 @@ $(document).ready(function() {
             labelFontSize : '15',
             labelAlign: 'center'
           },
-          {
-            value : array_values4[1],
-            color : "#E2EAE9",
-            label : 'WHO LIKED UR SHIT',
-            labelColor : '#444',
-            labelFontSize : '15',
-            labelAlign: 'center'
-          },
+          // {
+          //   value : array_values4[1],
+          //   color : "#E2EAE9",
+          //   label : 'WHO LIKED UR SHIT',
+          //   labelColor : '#444',
+          //   labelFontSize : '15',
+          //   labelAlign: 'center'
+          // },
           {
             value : 5,
             color : "#D4CCC5",
@@ -48,8 +47,4 @@ $(document).ready(function() {
     new Chart(ctx4).Pie(data4);
 
 });
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg4").hide();
-    })
   })

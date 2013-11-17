@@ -1,6 +1,5 @@
 //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart').prepend('<img id="theImg3" src="assets/ajax-loader.gif">')
 
   $.getJSON("/party")
     .done(function(data2){
@@ -33,9 +32,4 @@ $(document).ready(function() {
     //Create the chart
     new Chart(ctx3).Radar(data3);
 });
-
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg3").hide();
-    })
   })
