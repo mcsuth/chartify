@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart2').prepend('<img id="theImg4" src="assets/ajax-loader.gif">')
 
   $.getJSON("/photos")
     .done(function(data4){
@@ -48,8 +47,4 @@ $(document).ready(function() {
     new Chart(ctx4).Pie(data4);
 
 });
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg4").hide();
-    })
   })

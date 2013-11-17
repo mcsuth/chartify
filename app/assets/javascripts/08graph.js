@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart3').prepend('<img id="theImg8" src="assets/ajax-loader.gif">')
 
   $.getJSON("/hometowns")
     .done(function(data8){
@@ -47,13 +46,6 @@ $(document).ready(function() {
     //Create the chart
     new Chart(ctx6).Pie(data8);
 });
-
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg8").hide();
-    })
-
-
   })
 
 

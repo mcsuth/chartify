@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart2').prepend('<img id="theImg6" src="assets/ajax-loader.gif">')
 
   $.getJSON("/cultured")
     .done(function(data6){
@@ -47,13 +46,6 @@ $(document).ready(function() {
     //Create the chart
     new Chart(ctx6).Pie(data6);
 });
-
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg6").hide();
-    })
-
-
   })
 
 

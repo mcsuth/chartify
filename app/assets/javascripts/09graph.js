@@ -1,6 +1,5 @@
     //////////////////////GETTING JSON DATA//////////////////////
 $(document).ready(function() {
-  $('#chart3').prepend('<img id="theImg9" src="assets/ajax-loader.gif">')
 
   $.getJSON("/love")
     .done(function(data9){
@@ -63,13 +62,6 @@ $(document).ready(function() {
     //Create the chart
     new Chart(ctx9).Pie(data9);
 });
-
-  $(document).ajaxSuccess(function() {
-    // alert("An individual AJAX call has completed successfully");
-    $("#theImg9").hide();
-    })
-
-
   })
 
 
