@@ -15,10 +15,6 @@
 //= require chart.min.js
 //= require jquery.touchSwipe.js
 //= require sidebar.js
-<<<<<<< HEAD
-=======
-//= require main.js.coffee
->>>>>>> 4c915ec792610d752cf2daa5ec42ca33f70ecfa8
 //= require 01fuckgraph.js
 //= require 02funnygraph.js
 //= require 03partygraph.js
@@ -32,7 +28,8 @@
 //= require 08graph.js
 //= require 09graph.js
 //= require 10graph.js
-<<<<<<< HEAD
-=======
 
->>>>>>> 4c915ec792610d752cf2daa5ec42ca33f70ecfa8
+
+
+
+
