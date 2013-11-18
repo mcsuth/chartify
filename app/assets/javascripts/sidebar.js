@@ -15,6 +15,17 @@ $(document).ready(function(){
 
   });
 
+
+  //JQUERY MASONRY
+
+  var container = document.querySelector('#yield');
+   msnry = new Masonry( container, {
+    columnWidth: 330,
+    itemSelector: '.chart-box'
+  });
+
+
+
   $("[data-toggle]").click(function() {
     var toggle_el = $(this).data("toggle");
     $(toggle_el).toggleClass("open-sidebar");
