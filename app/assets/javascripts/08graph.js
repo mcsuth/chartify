@@ -60,12 +60,11 @@ hometowns_with_id = function(friend_id) {
 }
 
 hometowns = function() {
-  $.getJSON("/hometowns")
-    .done(function(data8){
+  $.getJSON("/hometowns").done(function(data8){
     var array_values8= new Array();
-      for (var key in data8) {
-        array_values8.push(data8[key]);
-      }
+    for (var key in data8) {
+      array_values8.push(data8[key]);
+    }
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.

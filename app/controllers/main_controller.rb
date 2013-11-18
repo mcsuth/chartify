@@ -306,7 +306,7 @@ class MainController < ApplicationController
 
   def gender
     if params[:friend_id]
-            render json: User.find_by_uid(params[:friend_id]).user_data.sex_data
+      render json: User.find_by_uid(params[:friend_id]).user_data.sex_data
     else
       genders = current_user.facebook.get_connections("me", "friends?fields=name,gender")
       sex = []
@@ -320,11 +320,11 @@ class MainController < ApplicationController
       male = sex.count("male").to_f/numfriends.to_f
       female = sex.count("female").to_f/numfriends.to_f
 
-      @gender = {males: male.round(2), females: female.round(2)}
+      @gender = {'males'=> male.round(2), 'females'=> female.round(2)}
       if current_user.user_data
-        current_user.user_data.update_attributes({sex_data: @top_5.to_s})
+        current_user.user_data.update_attributes({sex_data: @gender.to_s.gsub("=>",":")})
       else
-        current_user.create_user_data({sex_data: @top_5.to_s})
+        current_user.create_user_data({sex_data: @gender})
       end
       render json: @gender
     end
