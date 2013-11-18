@@ -218,7 +218,7 @@ class MainController < ApplicationController
 
   def user_likes
     if params[:friend_id]
-      render json: User.find_by_uid(params[:friend_id]).user_data.interests_data
+      render json: User.find_by_uid(params[:friend_id]).user_data.interests_data.gsub('=>',':').gsub(':music','"music"').gsub(':books','"books"').gsub(':movies','"movies"')
     else
       music = current_user.facebook.get_connections("me", "music").count
       books = current_user.facebook.get_connections("me", "books").count
@@ -235,7 +235,7 @@ class MainController < ApplicationController
 
   def hometowns
     if params[:friend_id]
-      render json: User.find_by_uid(params[:friend_id]).user_data.hometown_data
+      render json: User.find_by_uid(params[:friend_id]).user_data.hometown_data.gsub(':top_places','"top_places"').gsub(':number','"number"').gsub('=>',':')
     else
       hometowns = current_user.facebook.get_connections("me", "friends?fields=location")
       home = []
@@ -283,7 +283,7 @@ class MainController < ApplicationController
 
   def love
     if params[:friend_id]
-      render json: User.find_by_uid(params[:friend_id]).user_data.relationship_data
+      render json: User.find_by_uid(params[:friend_id]).user_data.relationship_data.gsub("=>",":")
     else
       relationships = current_user.facebook.get_connections("me", "friends?fields=name,gender,relationship_status")
       love = []
@@ -294,13 +294,15 @@ class MainController < ApplicationController
       end
 
       relation = love.join(",")
-      @status = relation.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+      status = relation.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+
       if current_user.user_data
-        current_user.user_data.update_attributes({relationship_data: @status.to_s})
+        current_user.user_data.update_attributes({relationship_data: status.to_s})
       else
-        current_user.create_user_data({relationship_data: @status.to_s})
+        current_user.create_user_data({relationship_data: status.to_s})
       end
-      render json: @status
+
+      render json: status
     end
   end
 
