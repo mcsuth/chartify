@@ -191,6 +191,7 @@ html {
   height: 3.3em;
   margin-top: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 #name {
@@ -483,4 +484,11 @@ html {
   margin-right: auto;
   text-transform: uppercase;
   color: #b3b3b1;
+}
+
+.canvas-container #number {
+  font-size: 5em;
+  color: #F7464A;
+}
+
 }

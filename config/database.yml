@@ -19,10 +19,7 @@ test:
 
 
 
-
 production:
   adapter: postgresql
   database: [chartify]
   host: localhost
-
-

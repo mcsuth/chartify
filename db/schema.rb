@@ -26,8 +26,14 @@ ActiveRecord::Schema.define(:version => 20131115021558) do
     t.integer  "user_id"
     t.string   "like_data"
     t.string   "tags_data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "sex_data"
+    t.string   "interests_data"
+    t.string   "hometown_data"
+    t.string   "relationship_data"
+    t.string   "likes_data"
+    t.string   "cultured"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

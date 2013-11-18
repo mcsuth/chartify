@@ -45,12 +45,7 @@ tags_per_friend_with_id = function(friend_id) {
 
 tags_per_friend = function() {
   $.getJSON("/tags_per_friend", function(datatpf){
-    console.log(datatpf);
     var valuetpf = datatpf;
-
-
-    console.log(valuetpf)
-
 
     var ctxtagspf = $("#tagpf").get(0).getContext("2d");
 

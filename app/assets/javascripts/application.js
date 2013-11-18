@@ -15,10 +15,8 @@
 //= require chart.min.js
 //= require jquery.touchSwipe.js
 //= require sidebar.js
-
 //= require likepf.js
 //= require tagpf.js
-
 //= require likegraph.js
 //= require 06graph.js
 //= require 07graph.js
