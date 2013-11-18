@@ -1,10 +1,7 @@
 $(document).ready(function() {
   likes_per_friend();
-  // $(".friend").click(function() {
-  //   cosole.log("hello world!");
-  // });
+  
   $("body").on("click", ".friend", function() {
-    console.log(this.getAttribute("data-id"));
     likes_per_friend_with_id(this.getAttribute("data-id"));
   });
 });
