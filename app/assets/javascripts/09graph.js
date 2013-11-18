@@ -25,7 +25,7 @@ love_with_id = function(friend_id){
         color:"#F7464A",
         label : 'In a domestic partnership',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -33,7 +33,7 @@ love_with_id = function(friend_id){
         color : "#E2EAE9",
         label : 'Married',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -41,7 +41,7 @@ love_with_id = function(friend_id){
         color : "#D4CCC5",
         label : 'Single',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -49,7 +49,7 @@ love_with_id = function(friend_id){
         color : "#E2EAE9",
         label : 'In a relationship',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -57,7 +57,7 @@ love_with_id = function(friend_id){
         color : "#D4CCC5",
         label : 'Engaged',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       }
     ]
@@ -86,7 +86,7 @@ love = function(){
         color:"#F7464A",
         label : 'In a domestic partnership',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -94,7 +94,7 @@ love = function(){
         color : "#E2EAE9",
         label : 'Married',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -102,7 +102,7 @@ love = function(){
         color : "#D4CCC5",
         label : 'Single',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -110,7 +110,7 @@ love = function(){
         color : "#E2EAE9",
         label : 'In a relationship',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       },
       {
@@ -118,7 +118,7 @@ love = function(){
         color : "#D4CCC5",
         label : 'Engaged',
             labelColor : 'white',
-            labelFontSize : '15',
+            labelFontSize : '10',
             labelAlign: 'center'
       }
     ]
