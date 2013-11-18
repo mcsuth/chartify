@@ -16,3 +16,9 @@
 //= require jquery.touchSwipe.js
 //= require sidebar.js
 //= require likepf.js
+//= require tagpf.js
+//= require 06graph.js
+//= require 07graph.js
+//= require 08graph.js
+//= require 09graph.js
+//= require 10graph.js

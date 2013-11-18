@@ -443,36 +443,3 @@ html {
   text-transform: uppercase;
   color: #b3b3b1;
 }
-
-
-
-/*#theImg1,#theImg2,#theImg3,#theImg4,#theImg5 {
-  padding: 50px;
-  margin: 20px;
-}
-
-#chart {
-  text-align: center;
-  position: absolute;
-  z-index: 5;
-}
-
-.chart {
-  padding: 0 20px 0 50px;
-}
-<<<<<<< HEAD
-
-p {
-=======
-#graph {
->>>>>>> 1640a95710fc825c81f58c6a36080847bc2a5d20
-  margin: 20px;
-  width: 400px;
-  text-align: center;
-  border: 0px solid red;
-  float: left;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 35px;
-  letter-spacing: 2px;
-}*/
