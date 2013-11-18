@@ -22,13 +22,17 @@ PINK:               #DF314D;
  */
 
 body, html {
-  background: #F2F2F2;
-  height: 100%;
   margin: 0;
-  overflow:scroll;
   font-family: helvetica;
   font-weight: 100;
 }
+
+html {
+}
+
+/*#logo {
+  margin-bottom: 3em;
+}*/
 
 .container {
   position: relative;
@@ -90,6 +94,7 @@ body, html {
   width: 240px;
   height: 100%;
   left: -240px;
+  float: left;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
@@ -297,12 +302,18 @@ body, html {
 
 .main-content {
   padding: 10px;
-  height: 59px;
   background-color: #f2f2f2;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+  overflow: scroll;
   position: relative;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
+
+/***********************LOGIN PAGE**************************/
 
 .main-body {
   width: 100%;
@@ -393,29 +404,42 @@ body, html {
   padding-top: 4px;
   width: 221px;
 }
-/*************************Graphs**********************/
 
-#theImg1,#theImg2,#theImg3,#theImg4,#theImg5 {
-  padding: 50px;
-  margin: 20px;
+/*************************Charts**********************/
+
+
+.chart-container {
+  -moz-column-count: 2;
+  -moz-column-gap: 2px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 2px;
+  column-count: 2;
+  column-gap: 2px;
+  margin-top: 2em;
+  position: relative;
 }
-#chart {
+
+.chart-box {
+  display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+  min-width: 420px;
+  margin-bottom: 20px;
+  padding-bottom: 8%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.chart-box canvas {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chart-box h1 {
+  font-size: 1em;
+  font-family: 'helvetica';
   text-align: center;
-/*  border: 1px solid red;*/
-  position: absolute;
-  z-index: 5;
-}
-.chart {
-  padding: 0 20px 0 50px;
-}
-#graph {
-  margin: 20px;
-  width: 400px;
-  text-align: center;
-  border: 0px solid red;
-  float: left;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 35px;
-  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b3b3b1;
 }
