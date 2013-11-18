@@ -25,6 +25,7 @@ body, html {
   margin: 0;
   font-family: helvetica;
   font-weight: 100;
+  background-color: #f2f2f2;
 }
 
 html {
@@ -301,13 +302,12 @@ html {
 /*************************MAIN BODY**********************/
 
 .main-content {
-  padding: 10px;
   background-color: #f2f2f2;
+  padding: 10px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   overflow: scroll;
   position: relative;
-  width: 960px;
   margin-left: auto;
   margin-right: auto;
 
@@ -395,13 +395,17 @@ html {
   line-height: 160%;
 }
 
+#header {
+  height: 3.6em;
+}
+
 #logo {
   margin: auto;
   width: 221px;
 }
 
 #logo img {
-  padding-top: 4px;
+  padding-top: .3em;
   width: 221px;
 }
 
@@ -409,37 +413,42 @@ html {
 
 
 .chart-container {
-  -moz-column-count: 2;
-  -moz-column-gap: 2px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 2px;
-  column-count: 2;
-  column-gap: 2px;
-  margin-top: 2em;
-  position: relative;
+  width: ;
 }
 
 .chart-box {
-  display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
-  min-width: 420px;
-  margin-bottom: 20px;
-  padding-bottom: 8%;
+  width: 320px;
+  float: left;
+  margin-left: .2%;
+  margin-right: 1.5%;
+  margin-bottom: 2%;
+  padding-bottom: 1%;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.chart-box canvas {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+.chart-box:after {
+  clear: both;
+}
+
+.canvas-container {
+   width: 100%;
+   text-align:center;
+}
+
+.chart {
+  display: inline;
 }
 
 .chart-box h1 {
   font-size: 1em;
   font-family: 'helvetica';
+  width: 290px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   text-transform: uppercase;
   color: #b3b3b1;
 }
