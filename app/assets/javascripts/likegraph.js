@@ -19,6 +19,6 @@ $.getJSON("/likes", function(datal){
    console.log(datal);
     var valuel = datal;
     $("#number").html(datal);
-  });
-})
+  })
+}
 
