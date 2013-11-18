@@ -1,6 +1,6 @@
 $(document).ready(function() {
   likes_per_friend();
-  
+
   $("body").on("click", ".friend", function() {
     likes_per_friend_with_id(this.getAttribute("data-id"));
   });

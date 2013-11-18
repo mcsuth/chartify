@@ -25,7 +25,7 @@
   transition: width 1s;
 }
 
-.pace .pace-progress-inner {
+.pace .pace-progress-inner, #chart-box {
   position: absolute;
   top: 0;
   left: 0;
