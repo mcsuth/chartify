@@ -1,47 +1,24 @@
 $(document).ready(function() {
-  $.getJSON("/likes", function(datal){
-    console.log(datal);
+  likes();
+
+  $("body").on("click", ".friend", function() {
+    likes_with_id(this.getAttribute("data-id"));
+  });
+});
+
+likes_with_id = function(friend_id) {
+  $.getJSON("/likes?friend_id=" + friend_id, function(datal){
+   console.log(datal);
     var valuel = datal;
-
-
-    console.log(valuel)
-
-
-    var ctxlike = $("#likes").get(0).getContext("2d");
-
-    var datal = {
-      labels : ["Total Likes"],
-      datasets : [
-                  {
-                      fillColor : "#F7464A",
-                      strokeColor : "#F7464A",
-                      data : [valuel]
-                  },
-                 ]
-    };
-
-    options = {
-
-    showLabelsOnBars:true,
-    barLabelFontColor:"blue",
-
-
-    //Boolean - If we want to override with a hard coded scale
-    scaleOverride : true,
-
-    //** Required if scaleOverride is true **
-    //Number - The number of steps in a hard coded scale
-    scaleSteps : 1,
-    //Number - The value jump in the hard coded scale
-    scaleStepWidth : valuel,
-    //Number - The scale starting value
-    scaleStartValue : 0,
-
-
-    };
-
-    new Chart(ctxlike).Bar(datal, options);
-
-
-  })
+    $("#number").html(datal);
+  });
 })
+
+likes = function() {
+$.getJSON("/likes", function(datal){
+   console.log(datal);
+    var valuel = datal;
+    $("#number").html(datal);
+  });
+})
+

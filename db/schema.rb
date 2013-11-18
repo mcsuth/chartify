@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20131115021558) do
     t.string   "relationship_data"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "cultured"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

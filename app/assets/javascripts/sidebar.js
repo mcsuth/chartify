@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   var container = document.querySelector('#yield');
    msnry = new Masonry( container, {
-    columnWidth: 330,
+    columnWidth: 339,
     itemSelector: '.chart-box'
   });
 

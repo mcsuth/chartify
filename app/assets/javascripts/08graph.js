@@ -71,7 +71,7 @@ hometowns = function() {
     console.log(array_values8[1][0])
     console.log(array_values8[0][0])
 
-    console.log(array_values8[1][1])
+    console.log(ar ray_values8[1][1])
     console.log(array_values8[0][1])
 
     console.log(array_values8[1][2])
@@ -94,7 +94,7 @@ hometowns = function() {
         color:"#F7464A",
         label : array_values8[0][0],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -102,7 +102,7 @@ hometowns = function() {
         color : "#E2EAE9",
         label : array_values8[0][1],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -110,7 +110,7 @@ hometowns = function() {
         color : "#D4CCC5",
         label : array_values8[0][2],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -118,7 +118,7 @@ hometowns = function() {
         color : "#E2EAE9",
         label : array_values8[0][3],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       }
     ]
