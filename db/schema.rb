@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20131115021558) do
     t.string   "relationship_data"
     t.string   "likes_data"
     t.string   "cultured"
-    t.string   "hometowns"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

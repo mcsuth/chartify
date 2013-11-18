@@ -216,9 +216,6 @@ class MainController < ApplicationController
     end
   end
 
-
-# ///////////////////
-
   def user_likes
     if params[:friend_id]
       render json: User.find_by_uid(params[:friend_id]).user_data.interests_data
