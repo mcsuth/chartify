@@ -7,14 +7,8 @@ $(document).ready(function() {
 });
 
 likes_per_friend_with_id = function(friend_id) {
-  console.log("Hello, world!")
   $.getJSON("/likes_per_friend?friend_id=" + friend_id, function(datalpf){
-    console.log(datalpf);
     var valuelpf = datalpf;
-
-
-    console.log(valuelpf)
-
 
     var ctxlikepf = $("#likepf").get(0).getContext("2d");
 
@@ -44,12 +38,7 @@ likes_per_friend_with_id = function(friend_id) {
 
 likes_per_friend = function() {
   $.getJSON("/likes_per_friend", function(datalpf){
-    console.log(datalpf);
     var valuelpf = datalpf;
-
-
-    console.log(valuelpf)
-
 
     var ctxlikepf = $("#likepf").get(0).getContext("2d");
 

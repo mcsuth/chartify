@@ -8,11 +8,10 @@ $(document).ready(function() {
 });
 
 hometowns_with_id = function(friend_id) {
-  $.getJSON("/hometowns?friend_id=" + friend_id);
-    .done(function(data8){
+  $.getJSON("/hometowns?friend_id=" + friend_id).done(function(data8){
     var array_values8= new Array();
       for (var key in data8) {
-        array_values8.push(data8[key])
+        array_values8.push(data8[key]);
       }
 
     //////////////////////PIE GRAPH//////////////////////
@@ -63,25 +62,10 @@ hometowns_with_id = function(friend_id) {
 hometowns = function() {
   $.getJSON("/hometowns")
     .done(function(data8){
-    console.log("Fetched Your Friends' Hometowns")
     var array_values8= new Array();
       for (var key in data8) {
-        array_values8.push(data8[key])
+        array_values8.push(data8[key]);
       }
-    console.log(array_values8[1][0])
-    console.log(array_values8[0][0])
-
-    console.log(ar ray_values8[1][1])
-    console.log(array_values8[0][1])
-
-    console.log(array_values8[1][2])
-    console.log(array_values8[0][2])
-
-    console.log(array_values8[1][3])
-    console.log(array_values8[0][3])
-
-
-    // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.

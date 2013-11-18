@@ -8,8 +8,7 @@ $(document).ready(function() {
 });
 
 user_likes_with_id = function(friend_id) {
-  $.getJSON("/user_likes?friend_id=" + friend_id)
-    .done(function(data7){
+  $.getJSON("/user_likes?friend_id=" + friend_id).done(function(data7){
     var array_values7= new Array();
       for (var key in data7) {
         array_values7.push(data7[key])

@@ -8,18 +8,13 @@ $(document).ready(function() {
 });
 
 cultured_with_id = function(friend_id) {
-  console.log("Hello, world!")
   $.getJSON("/cultured?friend_id=" + friend_id, function(data6){
-    console.log("Fetched Your languages")
     var array_values6= new Array();
       for (var key in data6) {
-        array_values6.push(data6[key])
+        array_values6.push(data6[key]);
       }
 
-    console.log(array_values6)
-    // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
-
-//////////////////////PIE GRAPH//////////////////////
+    //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
     var ctx6 = $("#myChart6").get(0).getContext("2d");
 
@@ -59,15 +54,12 @@ cultured_with_id = function(friend_id) {
 cultured = function() {
   $.getJSON("/cultured")
     .done(function(data6){
-    console.log("Fetched Your languages")
     var array_values6= new Array();
       for (var key in data6) {
         array_values6.push(data6[key])
       }
-    console.log(array_values6)
-    // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
 
-//////////////////////PIE GRAPH//////////////////////
+    //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
     var ctx6 = $("#myChart6").get(0).getContext("2d");
 

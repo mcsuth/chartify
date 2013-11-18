@@ -10,13 +10,10 @@ $(document).ready(function() {
 gender_with_id = function(friend_id){
   $.getJSON("/gender?friend_id=" + friend_id)
     .done(function(data10){
-    console.log("Fetched Your Friends' Sex")
     var array_values10= new Array();
       for (var key in data10) {
         array_values10.push(data10[key])
       }
-    console.log(data10)
-    // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
@@ -50,13 +47,10 @@ gender_with_id = function(friend_id){
 gender = function(){
   $.getJSON("/gender")
     .done(function(data10){
-    console.log("Fetched Your Friends' Sex")
     var array_values10= new Array();
       for (var key in data10) {
         array_values10.push(data10[key])
       }
-    console.log(data10)
-    // THIS WORKS AND SHOWS AN ARRAY OF SHITTY NUMBERS
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
