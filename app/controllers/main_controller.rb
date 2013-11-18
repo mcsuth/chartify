@@ -174,25 +174,33 @@ class MainController < ApplicationController
 
 
   def likes
-    posts = current_user.facebook.get_connections("me", "posts")
-    messages = ""
-    likes = []
-    next_page = posts.next_page
-    while !next_page.to_a.empty?
-      posts += next_page
-      next_page = next_page.next_page
-    end
-
-    posts.each do |post|
-      if post['likes']
-        likes += post['likes']['data']
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.likes_data
+    else
+      posts = current_user.facebook.get_connections("me", "posts")
+      messages = ""
+      likes = []
+      next_page = posts.next_page
+      while !next_page.to_a.empty?
+        posts += next_page
+        next_page = next_page.next_page
       end
+
+      posts.each do |post|
+        if post['likes']
+          likes += post['likes']['data']
+        end
+      end
+
+      amount = likes.count
+      @likes = amount
+      if current_user.user_data
+        current_user.user_data.update_attributes({likes_data: @likes.to_s})
+      else
+        current_user.create_user_data({likes_data: @likes.to_s})
+      end
+      render json: @likes
     end
-
-    amount = likes.count
-
-    @likes = amount
-    render json: @likes
   end
 
 

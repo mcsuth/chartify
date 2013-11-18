@@ -453,3 +453,10 @@ html {
   text-transform: uppercase;
   color: #b3b3b1;
 }
+
+.canvas-container #number {
+  font-size: 5em;
+  color: #F7464A;
+}
+
+}
