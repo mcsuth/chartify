@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20131115021558) do
     t.integer  "user_id"
     t.string   "like_data"
     t.string   "tags_data"
+    t.string   "cultured"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

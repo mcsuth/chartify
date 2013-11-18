@@ -4,6 +4,8 @@ class CreateUserData < ActiveRecord::Migration
     	t.integer :user_id
     	t.string :like_data
     	t.string :tags_data
+      t.string :cultured
+      t.string :hometowns
 
       t.timestamps
     end
