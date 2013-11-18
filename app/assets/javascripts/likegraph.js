@@ -12,7 +12,7 @@ likes_with_id = function(friend_id) {
     var valuel = datal;
     $("#number").html(datal);
   });
-})
+}
 
 likes = function() {
 $.getJSON("/likes", function(datal){
@@ -20,5 +20,5 @@ $.getJSON("/likes", function(datal){
     var valuel = datal;
     $("#number").html(datal);
   });
-})
+}
 
