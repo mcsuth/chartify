@@ -141,7 +141,16 @@ class MainController < ApplicationController
     @tags_per_friend.sort! { |x,y| y[:tags] <=> x[:tags] }
     @tags_per_friend = @tags_per_friend[0..4]
 
-    render json: @tags_per_friend
+    names = []
+    values = []
+
+    @tags_per_friend.each do |name|
+      names << name[:username]
+      values << name[:tags]
+    end
+
+    @top_5 = [names,values]
+    render json: @top_5
   end
 
 

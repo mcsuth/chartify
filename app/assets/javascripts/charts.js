@@ -288,8 +288,22 @@ window.Chart = function(context, options){
         }
 
         //Variables global to the chart
-        var width = context.canvas.width,
-                height = context.canvas.height;
+        var computeDimension = function(element,dimension)
+        {
+                if (element['offset'+dimension])
+                {
+                        return element['offset'+dimension];
+                }
+                else
+                {
+                        return document.defaultView.getComputedStyle(element).getPropertyValue(dimension);
+                }
+        }
+        var width  = computeDimension(context.canvas,'Width');
+        var height = computeDimension(context.canvas,'Height');
+
+        context.canvas.width  = width;
+        context.canvas.height = height;
 
         this.savedState = null;
 
