@@ -10,29 +10,6 @@ class MainController < ApplicationController
 
   end
 
-  def user_data
-  	posts = current_user.facebook.get_connections("me", "posts")
-  	messages = ""
-  	likes = []
-  	next_page = posts.next_page
-  	while !next_page.to_a.empty?
-  		posts += next_page
-  		next_page = next_page.next_page
-  	end
-
-  	posts.each do |post|
-  		if post['message']
-  			messages += post['message']
-  		end
-  		if post['likes']
-  			likes += post['likes']['data']
-  		end
-  	end
-
-  	@data = {messages: messages, likes: likes}
-  	render json: @data
-  end
-
   def json
     # render "data"
     @friends = current_user.friends
@@ -220,83 +197,117 @@ class MainController < ApplicationController
   end
 
   def user_likes
-    music = current_user.facebook.get_connections("me", "music").count
-    books = current_user.facebook.get_connections("me", "books").count
-    movies = current_user.facebook.get_connections("me", "movies").count
-    @user_likes = { music: music, books: books, movies: movies }
-    render json: @user_likes
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.interests_data
+    else
+      music = current_user.facebook.get_connections("me", "music").count
+      books = current_user.facebook.get_connections("me", "books").count
+      movies = current_user.facebook.get_connections("me", "movies").count
+      @user_likes = { music: music, books: books, movies: movies }
+      if current_user.user_data
+        current_user.user_data.update_attributes({interests_data: @user_likes.to_s})
+      else
+        current_user.create_user_data({interests_data: @user_likes.to_s})
+      end
+      render json: @user_likes
+    end
   end
 
   def hometowns
-    hometowns = current_user.facebook.get_connections("me", "friends?fields=location")
-    home = []
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.hometown_data
+    else
+      hometowns = current_user.facebook.get_connections("me", "friends?fields=location")
+      home = []
 
-    hometowns.each do |hometown|
-      if hometown["location"]
-        home << hometown["location"]["name"]
+      hometowns.each do |hometown|
+        if hometown["location"]
+          home << hometown["location"]["name"]
+        end
       end
+
+      hashoflocations = home.sort.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+      sorted = hashoflocations.sort_by{|k,v| -v}.first(3)
+      x = current_user.friends.count
+      y = home.count
+
+
+      x = current_user.friends.count
+      y = home.count
+
+      # Place Names
+      names = []
+      numbers = []
+
+      total = sorted[0][1] + sorted[1][1] + sorted[2][1]
+      othernum = ( y - total)
+
+      names << [sorted[0][0]]
+      names  << [sorted[1][0]]
+      names << [sorted[2][0]]
+      names << ["The Middle of Nowhere"]
+
+      numbers << ([sorted[0][1]])
+      numbers  << [sorted[1][1]]
+      numbers << [sorted[2][1]]
+      numbers << [othernum]
+      @hash = { top_places: names, number: numbers}
+      if current_user.user_data
+        current_user.user_data.update_attributes({hometown_data: @hash.to_s})
+      else
+        current_user.create_user_data({hometown_data: @hash.to_s})
+      end
+      render json: @hash
     end
-
-    hashoflocations = home.sort.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    sorted = hashoflocations.sort_by{|k,v| -v}.first(3)
-    x = current_user.friends.count
-    y = home.count
-
-
-    x = current_user.friends.count
-    y = home.count
-
-    # Place Names
-    names = []
-    numbers = []
-
-    total = sorted[0][1] + sorted[1][1] + sorted[2][1]
-    othernum = ( y - total)
-
-    names << [sorted[0][0]]
-    names  << [sorted[1][0]]
-    names << [sorted[2][0]]
-    names << ["The Middle of Nowhere"]
-
-    numbers << ([sorted[0][1]])
-    numbers  << [sorted[1][1]]
-    numbers << [sorted[2][1]]
-    numbers << [othernum]
-    hash = { top_places: names, number: numbers}
-    render json: hash
-
   end
 
   def love
-    relationships = current_user.facebook.get_connections("me", "friends?fields=name,gender,relationship_status")
-    love = []
-    relationships.each do |relationship|
-      if relationship["relationship_status"]
-        love << relationship["relationship_status"]
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.relationship_data
+    else
+      relationships = current_user.facebook.get_connections("me", "friends?fields=name,gender,relationship_status")
+      love = []
+      relationships.each do |relationship|
+        if relationship["relationship_status"]
+          love << relationship["relationship_status"]
+        end
       end
+
+      relation = love.join(",")
+      @status = relation.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+      if current_user.user_data
+        current_user.user_data.update_attributes({relationship_data: @status.to_s})
+      else
+        current_user.create_user_data({relationship_data: @status.to_s})
+      end
+      render json: @status
     end
-
-    relation = love.join(",")
-    status = relation.split(",").inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-
-    render json: status
   end
 
   def gender
-    genders = current_user.facebook.get_connections("me", "friends?fields=name,gender")
-    sex = []
-    genders.each do |gender|
-      if gender["gender"]
-        sex << gender["gender"]
+    if params[:friend_id]
+            render json: User.find_by_uid(params[:friend_id]).user_data.sex_data
+    else
+      genders = current_user.facebook.get_connections("me", "friends?fields=name,gender")
+      sex = []
+      genders.each do |gender|
+        if gender["gender"]
+          sex << gender["gender"]
+        end
       end
+      numfriends = current_user.friends[1]["id"]
+
+      male = sex.count("male").to_f/numfriends.to_f
+      female = sex.count("female").to_f/numfriends.to_f
+
+      @gender = {males: male.round(2), females: female.round(2)}
+      if current_user.user_data
+        current_user.user_data.update_attributes({sex_data: @top_5.to_s})
+      else
+        current_user.create_user_data({sex_data: @top_5.to_s})
+      end
+      render json: @gender
     end
-    numfriends = current_user.friends[1]["id"]
-
-    male = sex.count("male").to_f/numfriends.to_f
-    female = sex.count("female").to_f/numfriends.to_f
-
-    gender = {males: male.round(2), females: female.round(2)}
-    render json: gender
   end
 
 end
