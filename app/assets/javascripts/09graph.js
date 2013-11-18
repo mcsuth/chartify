@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 love_with_id = function(friend_id){
   $.getJSON("/love?friend_id=" + friend_id).done(function(data9){
-    var array_values9= new Array();
+    var array_values9 = new Array();
       for (var key in data9) {
         array_values9.push(data9[key])
       }
