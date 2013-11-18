@@ -3,6 +3,7 @@ class CreateUserData < ActiveRecord::Migration
     create_table :user_data do |t|
     	t.integer :user_id
     	t.string :like_data
+    	t.string :tags_data
 
       t.timestamps
     end

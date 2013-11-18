@@ -124,43 +124,52 @@ class MainController < ApplicationController
   end
 
   def tags_per_friend
-    photos = current_user.facebook.get_connections("me", "photos")
-    friends = current_user.friends
-    tags = []
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.tags_data
+    else
+      photos = current_user.facebook.get_connections("me", "photos")
+      friends = current_user.friends
+      tags = []
 
-    next_page = photos.next_page
-    while !next_page.to_a.empty?
-      photos += next_page
-      next_page = next_page.next_page
-    end
-
-    photos.each do |photo|
-      if photo['tags']
-        tags << photo['tags']['data']
+      next_page = photos.next_page
+      while !next_page.to_a.empty?
+        photos += next_page
+        next_page = next_page.next_page
       end
+
+      photos.each do |photo|
+        if photo['tags']
+          tags << photo['tags']['data']
+        end
+      end
+
+      tags.flatten!
+
+      @tags_per_friend = []
+      friends.each do |friend|
+        @tags_per_friend << {username: friend[:username],
+          tags: tags.count { |x| x['id'] == friend[:facebook_id]}}
+      end
+
+      @tags_per_friend.sort! { |x,y| y[:tags] <=> x[:tags] }
+      @tags_per_friend = @tags_per_friend[0..4]
+
+      names = []
+      values = []
+
+      @tags_per_friend.each do |name|
+        names << name[:username]
+        values << name[:tags]
+      end
+
+      @top_5 = [names,values]
+      if current_user.user_data
+        current_user.user_data.update_attributes({tags_data: @top_5.to_s})
+      else
+        current_user.create_user_data({tags_data: @top_5.to_s})
+      end
+      render json: @top_5
     end
-
-    tags.flatten!
-
-    @tags_per_friend = []
-    friends.each do |friend|
-      @tags_per_friend << {username: friend[:username],
-        tags: tags.count { |x| x['id'] == friend[:facebook_id]}}
-    end
-
-    @tags_per_friend.sort! { |x,y| y[:tags] <=> x[:tags] }
-    @tags_per_friend = @tags_per_friend[0..4]
-
-    names = []
-    values = []
-
-    @tags_per_friend.each do |name|
-      names << name[:username]
-      values << name[:tags]
-    end
-
-    @top_5 = [names,values]
-    render json: @top_5
   end
 
 
