@@ -14,7 +14,11 @@ FbAuth::Application.routes.draw do
   match 'love', to: 'main#love'
   match 'gender', to: 'main#gender'
   match 'likes', to: 'main#likes'
+<<<<<<< HEAD
   match 'cultured', to: 'main#cultured'
+=======
+  match 'cultured', to: "main#cultured"
+>>>>>>> d3979869d4cae2b4ac9edff7858ad1ea723ed7b6
 
   root to: "main#index"
 end

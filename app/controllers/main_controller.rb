@@ -123,6 +123,42 @@ class MainController < ApplicationController
     end
   end
 
+
+  def cultured
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.cultured
+    else
+      languages = current_user.facebook.get_connections("me", "friends?fields=languages")
+      lingo = []
+
+      languages.each do |language|
+        if language["languages"]
+          langs = language["languages"]
+          langs.each do |lang|
+            lingo << lang["name"]
+          end
+        end
+      end
+
+      lingos = lingo.join(" ")
+      unique_languages = lingo.join(" ").downcase.split(" ").uniq.sort.count
+
+      result = lingos.split.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+
+      top_3_langs = result.sort_by{|k,v| -v}.first(3)
+
+      if current_user.user_data
+        current_user.user_data.update_attributes({cultured: top_3_langs.to_s})
+      else
+        current_user.create_user_data({cultured: top_3_langs.to_s})
+      end
+
+      render json: top_3_langs
+    end
+  end
+
+
+
   def tags_per_friend
     if params[:friend_id]
       render json: User.find_by_uid(params[:friend_id]).user_data.tags_data
@@ -204,28 +240,7 @@ class MainController < ApplicationController
   end
 
 
-  def cultured
-    languages = current_user.facebook.get_connections("me", "friends?fields=languages")
-    lingo = []
-
-    languages.each do |language|
-      if language["languages"]
-        langs = language["languages"]
-        langs.each do |lang|
-          lingo << lang["name"]
-        end
-      end
-    end
-
-    lingos = lingo.join(" ")
-    unique_languages = lingo.join(" ").downcase.split(" ").uniq.sort.count
-
-    result = lingos.split.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    top_3_langs = result.sort_by{|k,v| -v}.first(3)
-    # [1][1]
-    render json: top_3_langs
-
-  end
+# ///////////////////
 
   def user_likes
     music = current_user.facebook.get_connections("me", "music").count
