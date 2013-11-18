@@ -40,7 +40,7 @@ $(document).ready(function(){
     var output = '<ul class="chartifyresults">';
     $.each(data, function(key, val) {
       if ((val.username.search(myExp) != -1)) {
-        output += '<li>';
+        output += '<li class="friend" data-id=' + val["facebook_id"] + '>';
         output += '<img src="' + val["profile_picture"] + '">'
         output += '<div id="searchresults-name">' + '<a href="#">' + val["username"] + '</a>' +'</div>';
         output += '</li>';

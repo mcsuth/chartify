@@ -74,43 +74,53 @@ class MainController < ApplicationController
   end
 
   def likes_per_friend
-    posts = current_user.facebook.get_connections("me", "posts")
-    friends = current_user.friends
-    likes = []
-    next_page = posts.next_page
-    while !next_page.to_a.empty?
-      posts += next_page
-      next_page = next_page.next_page
-    end
-
-    posts.each do |post|
-      if post['likes']
-        likes << post['likes']['data']
+    # if looking at a friends charts render the friends data
+    if params[:friend_id]
+      render json: User.find_by_uid(params[:friend_id]).user_data.like_data
+    else
+      posts = current_user.facebook.get_connections("me", "posts")
+      friends = current_user.friends
+      likes = []
+      next_page = posts.next_page
+      while !next_page.to_a.empty?
+        posts += next_page
+        next_page = next_page.next_page
       end
+
+      posts.each do |post|
+        if post['likes']
+          likes << post['likes']['data']
+        end
+      end
+      likes = likes.flatten
+
+      @likes_per_friend = []
+      friends.each do |friend|
+        @likes_per_friend << {username: friend[:username],
+          likes: likes.count { |x| x['id'] == friend[:facebook_id] }}
+      end
+
+      sort = @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
+
+      top_5 = sort[0..4]
+
+      names = []
+
+      values = []
+
+      top_5.each do |name|
+        names << name[:username]
+        values << name[:likes]
+      end
+
+      @top_5 = [names,values]
+      if current_user.user_data
+        current_user.user_data.update_attributes({like_data: @top_5.to_s})
+      else
+        current_user.create_user_data({like_data: @top_5.to_s})
+      end
+      render json: @top_5
     end
-    likes = likes.flatten
-
-    @likes_per_friend = []
-    friends.each do |friend|
-      @likes_per_friend << {username: friend[:username],
-        likes: likes.count { |x| x['id'] == friend[:facebook_id] }}
-    end
-
-    sort = @likes_per_friend.sort! { |x,y| y[:likes] <=> x[:likes] }
-
-    top_5 = sort[0..4]
-
-    names = []
-
-    values = []
-
-    top_5.each do |name|
-      names << name[:username]
-      values << name[:likes]
-    end
-
-    @top_5 = [names,values]
-    render json: @top_5
   end
 
   def tags_per_friend

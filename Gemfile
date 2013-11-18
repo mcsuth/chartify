@@ -7,9 +7,9 @@ gem 'sidekiq'
 group :develepmont, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'pry-rails'
 end
 
+gem 'pry'
 gem 'pg'
 gem 'rails_12factor'
 gem 'omniauth-facebook', '1.4.0'

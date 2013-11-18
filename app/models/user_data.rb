@@ -1,7 +1,7 @@
 class UserData < ActiveRecord::Base
-  attr_accessible :user_id, :user_data
+  attr_accessible :user_id, :like_data
 
   belongs_to :user
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, uniqueness: true
 end
