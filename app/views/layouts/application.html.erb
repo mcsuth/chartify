@@ -56,11 +56,13 @@
   </div>
     <% end %>
   <div class="main-content">
-    <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a>
+    <div id="toggle-button">
+      <a href="#" data-toggle=".container" <%= current_user ? "": 'style='+'background:#ccc;' %> id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+    </div>
     <div id="header">
       <div id="logo">
         <%= image_tag "chartify-logo.png" %>

@@ -39,7 +39,6 @@ html {
   position: relative;
   height: 100%;
   width: 100%;
-  left: 0;
   -webkit-transition:  left 0.4s ease-in-out;
   -moz-transition:  left 0.4s ease-in-out;
   -ms-transition:  left 0.4s ease-in-out;
@@ -51,13 +50,89 @@ html {
   background: #f2f2f2;
 }
 
+/***********************LOGIN PAGE**************************/
+
+
+#fb-login {
+  width: 100%;
+  margin-top: -30px;
+  margin-left: -20px;
+  padding: 0;
+}
+
+.main-body-login {
+  width: 100%;
+  min-height: 600px;
+  padding-top: 30px;
+  position: relative;
+  display: block;
+  background-image:url('background.png');
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+#login-modal {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 18em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background-color: rgba(242,242,242,0.7);
+  width: 80%;
+  -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.login-txt {
+  font-family: 'verdana';
+  text-align: center;
+  font-weight: 300;
+  color: #362f2d;
+  height: 1.6em;
+  font-size: 1.7em;
+  margin-top: 1.3em;
+  padding-top: 1.3em;
+}
+
+.login-bodytxt {
+  font-family: 'verdana';
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: 130;
+  color: #362f2d;
+  height: 3.2em;
+  font-size: 1.3em;
+}
+
+#login-img-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 69%;
+  max-width: 230px;
+}
+
+#login-modal img {
+  width: 100%;
+}
+
 /***********************GENERAL SIDEBAR ***************************/
 
 .container.open-sidebar {
   left: 240px;
 }
 
-.main-content #sidebar-toggle {
+#toggle-button {
+  margin-left: 10px;
+}
+
+#sidebar-toggle {
   background: #DF314D;
   border-radius: 3px;
   display: block;
@@ -66,7 +141,7 @@ html {
   float: left;
 }
 
-.main-content #sidebar-toggle .bar{
+#sidebar-toggle .bar{
   display: block;
   width: 18px;
   margin-bottom: 3px;
@@ -75,7 +150,7 @@ html {
   border-radius: 1px;
 }
 
-.main-content #sidebar-toggle .bar:last-child{
+#sidebar-toggle .bar:last-child{
   margin-bottom: 0;
 }
 
@@ -303,7 +378,7 @@ html {
 
 .main-content {
   background-color: #f2f2f2;
-  padding: 10px;
+  padding-top: 10px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   overflow: scroll;
@@ -313,12 +388,9 @@ html {
 
 }
 
-/***********************LOGIN PAGE**************************/
-
 .main-body {
   width: 100%;
   height: 100%;
-  padding: 10px;
   background-color: #f2f2f2;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -328,55 +400,10 @@ html {
 .main-body {
   width: 100%;
   height: 100%;
-  padding: 10px;
   background-color: #f2f2f2;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   position: relative;
-}
-
-.main-body-login {
-  width: 100%;
-  min-height: 600px;
-  position: relative;
-  background-attachment: scroll;
-  overflow: scroll;
-  display: block;
-  padding: 10px;
-  background-image:url('carleyJepson.jpg');
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-#login-modal {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 18px;
-  height: 190px;
-  background-color: #fff;
-  width: 80%;
-  border-radius: 1%;
-}
-
-#login-modal p {
-  font-family: 'verdana';
-  text-align: center;
-  font-weight: bold;
-  color: #898989;
-  font-size: 1.3em;
-  margin-top: .6em;
-  padding-top: .9em;
-}
-
-#login-img-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  max-width: 230px;
-}
-
-#login-modal img {
-  width: 100%;
 }
 
 .main-body .content {
@@ -414,8 +441,8 @@ html {
 
 .chart-box {
   float: left;
-  margin-left: .2%;
-  margin-right: 1%;
+  margin-left: 1.2%;
+  margin-right: %;
   margin-bottom: 2%;
   padding-bottom: .9%;
   background-color: #fff;
