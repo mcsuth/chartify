@@ -8,9 +8,14 @@
   <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js' %>
   <meta name="viewport" content="width=device-width">
   <script src="/assets/pace.js"></script>
+  <script src="/assets/invite.js"></script>
+  <script src="/assets/tweetus.js"></script>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
   <link href="/assets/loader.css" rel="stylesheet" />
 </head>
 <body>
+
+
 
 <% if !current_user %>
 <% else %>
@@ -28,6 +33,7 @@
       <% if current_user %>
         <%= link_to "Sign out", signout_path, id: "sign_out" %>
       <% end %>
+
     </div>
 
     <div id="chartifyarea">
@@ -35,19 +41,17 @@
       <input type="search" name="chartifysearch" id="chartifysearch" placeholder="start typing friend" />
       <div id="chartifyField">
       </div>
+
+      <div id="fb-root"></div>
+      <button onclick="FacebookInviteFriends();" style="background: #DF314D; padding: 15px; border-radius: 10px; font-size: 12px; color: #FFF; border: 1px solid #FFF">Invite Your Facebook Friends</button>
+
+    <br><br>
+    <button onclick="return popitup('https://twitter.com/share?')" style="background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat; background: #DF314D; padding: 15px; border-radius: 10px; font-size: 12px; color: #FFF; border: 1px solid #FFF">Tweet About Us!</button>
+
+
     </div>
 
-    <div id="fb-root"></div>
-    <a href='#' onclick="FacebookInviteFriends();">
-      Facebook Invite Friends Link
-    </a>
 
-<!--     <div id="searcharea">
-      <label id="search-header" for="search">invite friends</label>
-      <input type="search" name="search" id="search" placeholder="start typing friend" />
-      <div id="searchField">
-      </div>
-    </div> -->
 
   </div>
     <% end %>

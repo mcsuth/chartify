@@ -22,3 +22,5 @@
 //= require 08graph.js
 //= require 09graph.js
 //= require 10graph.js
+//= require 01fuckgraph.js
+
