@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '3.2.14'
+gem 'unicorn'
+gem 'sidekiq'
 
 group :develepmont, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'pry'
-  gem 'pry-rails'
 end
 
+gem 'pry'
 gem 'pg'
 gem 'rails_12factor'
 gem 'omniauth-facebook', '1.4.0'

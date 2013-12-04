@@ -12,4 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require chart.min.js
+//= require jquery.touchSwipe.js
+//= require sidebar.js
+//= require likepf.js
+//= require tagpf.js
+//= require likegraph.js
+//= require 06graph.js
+//= require 07graph.js
+//= require 08graph.js
+//= require 09graph.js
+//= require 10graph.js
+
+
+

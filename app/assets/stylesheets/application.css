@@ -21,20 +21,24 @@ SIDEBAR TXT:HOVER;  #fff
 PINK:               #DF314D;
  */
 
-
 body, html {
-  height: 100%;
   margin: 0;
-  overflow:scroll;
   font-family: helvetica;
   font-weight: 100;
+  background-color: #f2f2f2;
 }
+
+html {
+}
+
+/*#logo {
+  margin-bottom: 3em;
+}*/
 
 .container {
   position: relative;
   height: 100%;
   width: 100%;
-  left: 0;
   -webkit-transition:  left 0.4s ease-in-out;
   -moz-transition:  left 0.4s ease-in-out;
   -ms-transition:  left 0.4s ease-in-out;
@@ -42,8 +46,112 @@ body, html {
   transition:  left 0.4s ease-in-out;
 }
 
+.container {
+  background: #f2f2f2;
+}
+
+/***********************LOGIN PAGE**************************/
+
+
+#fb-login {
+  width: 100%;
+  margin-top: -30px;
+  margin-left: -20px;
+  padding: 0;
+}
+
+.main-body-login {
+  width: 100%;
+  min-height: 600px;
+  padding-top: 30px;
+  position: relative;
+  display: block;
+  background-image:url('background.png');
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+#login-modal {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 18em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background-color: rgba(242,242,242,0.7);
+  width: 80%;
+  -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.login-txt {
+  font-family: 'verdana';
+  text-align: center;
+  font-weight: 300;
+  color: #362f2d;
+  height: 1.6em;
+  font-size: 1.7em;
+  margin-top: 1.3em;
+  padding-top: 1.3em;
+}
+
+.login-bodytxt {
+  font-family: 'verdana';
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: 130;
+  color: #362f2d;
+  height: 3.2em;
+  font-size: 1.3em;
+}
+
+#login-img-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 69%;
+  max-width: 230px;
+}
+
+#login-modal img {
+  width: 100%;
+}
+
+/***********************GENERAL SIDEBAR ***************************/
+
 .container.open-sidebar {
   left: 240px;
+}
+
+#toggle-button {
+  margin-left: 10px;
+}
+
+#sidebar-toggle {
+  background: #DF314D;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  padding: 10px 7px;
+  float: left;
+}
+
+#sidebar-toggle .bar{
+  display: block;
+  width: 18px;
+  margin-bottom: 3px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+#sidebar-toggle .bar:last-child{
+  margin-bottom: 0;
 }
 
 .swipe-area {
@@ -62,18 +170,28 @@ body, html {
   width: 240px;
   height: 100%;
   left: -240px;
+  float: left;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-.current-user {
-  padding: 15px 20px;
-  height: 39px;
-  margin-bottom: 12px;
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  clear: both;
 }
 
-.current-user {
+/*************************SIDEBAR CONTENT***********************/
 
+/* current user */
+
+.current-user {
+  margin-left: 1em;
+  height: 3.3em;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
 }
 
 #name {
@@ -84,54 +202,70 @@ body, html {
   float: left;
   position: relative;
   width: 147px;
-  margin-left: 12px;
-  padding-top: 9px;
-}
-
-#fb-button {
-  float: left;
-}
-
-#logo {
-  margin: auto;
-  width: 221px;
-}
-
-#logo img {
-  padding-top: 4px;
-  width: 221px;
-}
-
-#chart-box {
-  width: 300px;
-  height: 300px;
-  background-color: #fff;
+  margin-left: 1em;
+  padding-top: 3px;
+  margin-bottom: -2px;
 }
 
 .current-user img {
   border-radius: 100%;
-  height: 36px;
+  height: 2.5em;
   float: left;
 }
 
-#sidebar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+#sign_out {
+  margin-left: 1.3em;
+  font-size: .7em;
+  text-decoration: none;
+  font-family: 'arial';
+  color: #b3b3b1;
+}
+
+#sign_out:hover {
+  color: #DF314D;
+}
+
+/*friends on chartify*/
+
+#chartifyarea {
+  margin-left: 21px;
+  height: 40%;
+}
+
+#chartify-header {
+  font: .75em Arial;
+  text-transform: uppercase;
+  color: #b3b3b1;
   clear: both;
 }
 
-#sidebar ul li {
-  margin: 0;
+#chartifysearch {
+  width: 179px;
 }
 
-#sidebar ul li a {
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: 100;
-  color: #b3b3b1;
+#chartifyarea input {
+  margin-top: 1em;
+  clear: both;
+  margin-bottom: 1em;
+}
+
+#chartifyField {
+  position: relative;
+  height: 9.6em;
+  overflow: scroll;
+}
+
+.chartifyresults li {
+  height: 2em;
   text-decoration: none;
   display: block;
+  padding-left: .6em;
+  padding-top: .3em;
+  clear: both;
+  -moz-border-radius-topleft: 50px;
+  border-top-left-radius: 50px;
+  -moz-border-radius-bottomleft: 50px;
+  border-bottom-left-radius: 50px;
   /*border-bottom: 1px solid #C9223D;*/
   -webkit-transition:  background 0.3s ease-in-out;
   -moz-transition:  background 0.3s ease-in-out;
@@ -140,43 +274,35 @@ body, html {
   transition:  background 0.3s ease-in-out;
 }
 
-#sidebar ul li:hover a {
+.chartifyresults li:hover {
   background: #f2f2f2;
-}
-
-#sidebar a:hover {
   color: #DF314D;
 }
 
-#friend {
-  height: 90px;
-  margin-left: 27px;
+.chartifyresults li a {
+  text-decoration: none;
+  display: block;
+  color: #b3b3b1;
 }
 
-.friend img {
+.chartifyresults img {
   border-radius: 100%;
-  height: 27px;
+  height: 1.6em;
   float: left;
 }
 
-#friend-name {
+#chartifyresults-name {
   font-size: .8em;
-  font-family: 'arial';
+  font-family: 'helvetica';
   color: #898989;
   float: left;
   position: relative;
   width: 160px;
+  margin-left: 1em;
   padding-top: 6px;
-  margin-left: 12px;
 }
 
-#friend-header {
-  font: .75em Arial;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  color: #b3b3b1;
-  clear: both;
-}
+/*invite friends*/
 
 #search {
   width: 179px;
@@ -185,46 +311,50 @@ body, html {
 #searcharea {
   /*  background: #f2f2f2;*/
   margin-left: 21px;
+  position: absolute;
+  bottom: 0;
+  height: 14em;
+  background-color: #fff;
+}
+
+#searchField {
+  position: relative;
+  height: 8.3em;
+  overflow: scroll;
 }
 
 #search-header {
   font: .75em Arial;
   text-transform: uppercase;
   color: #b3b3b1;
+  margin-top: .9em;
   clear: both;
 }
 
 #searcharea input {
-  margin-top: 9px;
+  margin-top: .9em;
   clear: both;
-  margin-bottom: 9px;
+  margin-bottom: .9em;
 }
 
-.searchresults {
-  height: 303px;
-  overflow: scroll;
+#searchresults-checkbox {
+  margin-right: .5em;
 }
 
 .searchresults li {
-  height: 36px;
-  text-decoration: none;
+  height: 2em;
   display: block;
-  padding-left: 6px;
-  padding-top: 9px;
+  padding-top: .3em;
   clear: both;
-  /*border-bottom: 1px solid #C9223D;*/
-  -webkit-transition:  background 0.3s ease-in-out;
-  -moz-transition:  background 0.3s ease-in-out;
-  -ms-transition:  background 0.3s ease-in-out;
-  -o-transition:  background 0.3s ease-in-out;
-  transition:  background 0.3s ease-in-out;
 }
 
-.searchresults li:hover {
-  background: #f2f2f2;
+.searchresults li a {
+    text-decoration: none;
+    display: block;
+    color: #b3b3b1;
 }
 
-.searchresults li:hover {
+.searchresults li a:hover {
   color: #DF314D;
 }
 
@@ -240,85 +370,41 @@ body, html {
   color: #898989;
   float: left;
   position: relative;
-  width: 160px;
-  margin-left: 12px;
+  width: 11.5em;
+  margin-left: 1em;
   padding-top: 5px;
 }
 
+/*************************MAIN BODY**********************/
+
 .main-content {
-  padding: 10px;
-  height: 59px;
   background-color: #f2f2f2;
+  padding-top: 10px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  position: relative;
-}
-
-.main-body {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  background-color: #f2f2f2;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-}
-
-.main-body {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  background-color: #f2f2f2;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-}
-
-.fb-login {
-}
-
-.main-body-login {
-  width: 100%;
-  min-height: 600px;
-  position: relative;
-  background-attachment: scroll;
   overflow: scroll;
-  display: block;
-  padding: 10px;
-  background-image:url('carleyJepson.jpg');
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.main-body {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+  position: relative;
 }
 
-#login-modal {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 18px;
-  height: 190px;
-  background-color: #fff;
-  width: 80%;
-  border-radius: 1%;
-}
-
-#login-modal p {
-  font-family: 'verdana';
-  text-align: center;
-  font-style: bold;
-  color: #898989;
-  font-size: 1.3em;
-  margin-top: .6em;
-  padding-top: .9em;
-}
-
-#login-img-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  max-width: 230px;
-}
-
-#login-modal img {
+.main-body {
   width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
 }
 
 .main-body .content {
@@ -337,31 +423,72 @@ body, html {
   line-height: 160%;
 }
 
-.main-content #sidebar-toggle {
-  background: #DF314D;
-  border-radius: 3px;
-  display: block;
-  position: relative;
-  padding: 10px 7px;
+#header {
+  height: 3.6em;
+}
+
+#logo {
+  margin: auto;
+  width: 221px;
+}
+
+#logo img {
+  padding-top: .3em;
+  width: 221px;
+}
+
+/*************************Charts**********************/
+
+
+.chart-box {
   float: left;
-}
-
-.container {
-  background: #f2f2f2;
-}
-
-.main-content #sidebar-toggle .bar{
-  display: block;
-  width: 18px;
-  margin-bottom: 3px;
-  height: 2px;
+  margin-left: 1.2%;
+  margin-right: %;
+  margin-bottom: 2%;
+  padding-bottom: .9%;
   background-color: #fff;
-  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
-.main-content #sidebar-toggle .bar:last-child{
-  margin-bottom: 0;
+
+.chart-box:after {
+  clear: both;
+}
+
+.canvas-container {
+   width: 100%;
+   text-align:center;
 }
 
 .chart {
-  padding: 0 20px 0 50px;
+  display: inline;
+  margin-left: .6em;
+  margin-right: .6em;
+}
+
+#bullet-head {
+  background-color: #f8f6f6;
+  height: 1.6em;
+  padding-top: .5em;
+  margin-bottom: .6em;
+}
+
+.chart-box h1 {
+  font-size: 1em;
+  margin-top: 0;
+  font-family: 'helvetica';
+  width: 230px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  color: #b3b3b1;
+}
+
+.canvas-container #number {
+  font-size: 5em;
+  color: #F7464A;
+}
+
 }
