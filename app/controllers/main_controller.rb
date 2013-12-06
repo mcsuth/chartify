@@ -1,5 +1,10 @@
 class MainController < ApplicationController
 
+  def worker
+    
+    render "Hello!"
+  end
+
   def index
     unless current_user
       redirect_to login_path
