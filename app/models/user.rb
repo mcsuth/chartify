@@ -11,13 +11,7 @@ class User < ActiveRecord::Base
 			user.oauth_token = auth.credentials.token
 			user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 			user.profile_picture = user.facebook.get_picture("me")
-			friends = user.facebook.get_connections("me", "friends")
-			friends.each do |friend|
-				picture = user.facebook.get_picture(friend['id'])
-				name = friend['name']
-				id = friend['id']
-				user.friends.find_or_create_by_facebook_id_and_user_id(profile_picture: picture, username: name, facebook_id: id)
-			end
+			
 			
 			user.save!
 		end

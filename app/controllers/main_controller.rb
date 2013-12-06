@@ -1,8 +1,8 @@
 class MainController < ApplicationController
 
   def worker
-    
-    render "Hello!"
+    HardWorker.perform_async(current_user.id);
+    render json: "Hello!"
   end
 
   def index
