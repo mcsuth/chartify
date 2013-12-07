@@ -31,5 +31,5 @@ $(document).ready(function() {
 			console.log("Hello, world!");
 			window.location.reload();		
 		}
-		, 15000);
+		, 30000);
 });
