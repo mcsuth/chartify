@@ -9,11 +9,12 @@ class MainController < ApplicationController
     unless current_user
       redirect_to login_path
     end
-    HardWorker.perform_async(current_user.id);
+    if current_user
+      HardWorker.perform_async(current_user.id);
+    end
   end
 
   def login
-
   end
 
   def json
