@@ -24,6 +24,13 @@ $(document).ready(function(){
     itemSelector: '.chart-box'
   });
 
+
+
+  $("[data-toggle]").click(function() {
+    var toggle_el = $(this).data("toggle");
+    $(toggle_el)[0].classList.toggle("open-sidebar");
+  });
+
   $(".swipe-area").swipe({
     swipeStatus:function(event, phase, direction, distance, duration, fingers)
       {

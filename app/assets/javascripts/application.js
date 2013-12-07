@@ -23,6 +23,13 @@
 //= require 08graph.js
 //= require 09graph.js
 //= require 10graph.js
+//= require_self
 
-
-
+$(document).ready(function() {
+	setTimeout(
+		function(){
+			console.log("Hello, world!");
+			window.location.reload();		
+		}
+		, 15000);
+});
