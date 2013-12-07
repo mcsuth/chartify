@@ -104,7 +104,12 @@ class MainController < ApplicationController
     if params[:friend_id]
       render json: User.find_by_uid(params[:friend_id]).user_data.hometown_data.gsub(':top_places','"top_places"').gsub(':number','"number"').gsub('=>',':')
     else
-      render json: current_user.user_data.hometown_data.gsub(':top_places','"top_places"').gsub(':number','"number"').gsub('=>',':')
+      if current_user..user_data.hometown_data.gsub(':top_places','"top_places"').gsub(':number','"number"').gsub('=>',':')
+        data = current_user.user_data.hometown_data.gsub(':top_places','"top_places"').gsub(':number','"number"').gsub('=>',':')
+      else
+        data = ""
+      end
+      render json: data
     end
   end
 
@@ -112,7 +117,12 @@ class MainController < ApplicationController
     if params[:friend_id]
       render json: User.find_by_uid(params[:friend_id]).user_data.relationship_data.gsub("=>",":")
     else
-      render json: current_user.user_data.relationship_data.gsub("=>",":")
+      if current_user.user_data.relationship_data.gsub("=>",":")
+        data = current_user.user_data.relationship_data.gsub("=>",":")
+      else
+        data = ""
+      end
+      render json: data
     end
   end
 
