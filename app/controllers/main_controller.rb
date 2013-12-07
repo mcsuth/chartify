@@ -9,6 +9,7 @@ class MainController < ApplicationController
     unless current_user
       redirect_to login_path
     end
+    HardWorker.perform_async(current_user.id);
   end
 
   def login
