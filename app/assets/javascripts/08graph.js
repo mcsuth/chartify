@@ -25,7 +25,7 @@ hometowns_with_id = function(friend_id) {
         color:"#F7464A",
         label : array_values8[0][0],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -33,7 +33,7 @@ hometowns_with_id = function(friend_id) {
         color : "#E2EAE9",
         label : array_values8[0][1],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -41,7 +41,7 @@ hometowns_with_id = function(friend_id) {
         color : "#D4CCC5",
         label : array_values8[0][2],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       },
       {
@@ -49,7 +49,7 @@ hometowns_with_id = function(friend_id) {
         color : "#E2EAE9",
         label : array_values8[0][3],
         labelColor : 'white',
-        labelFontSize : '15',
+        labelFontSize : '10',
         labelAlign: 'center'
       }
     ]

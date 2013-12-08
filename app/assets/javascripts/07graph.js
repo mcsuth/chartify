@@ -5,6 +5,7 @@ $(document).ready(function() {
   $("body").on("click", ".friend", function() {
     user_likes_with_id(this.getAttribute("data-id"));
   });
+
 });
 
 user_likes_with_id = function(friend_id) {

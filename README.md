@@ -1,10 +1,8 @@
 # Chartify.me
-
 ---
+- #### Chartify.me is a web app that builds chart based on your facebook data.
 
-### **VOCAB**
 
-- **Datapoints** (ie. number of posts you're tagged in)
-- **Indicators** (i.e when we put things together and say something like: how stupid somethingbody is)
-
-adding my name: dana
+# ToDo
+---
+- #### Use a background worker to perform api calls, so our requests don't time out.

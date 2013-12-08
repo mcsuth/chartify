@@ -443,7 +443,6 @@ html {
 .chart-box {
   float: left;
   margin-left: 1.2%;
-  margin-right: %;
   margin-bottom: 2%;
   padding-bottom: .9%;
   background-color: #fff;
@@ -489,6 +488,4 @@ html {
 .canvas-container #number {
   font-size: 5em;
   color: #F7464A;
-}
-
 }

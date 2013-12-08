@@ -13,6 +13,7 @@ love_with_id = function(friend_id){
       for (var key in data9) {
         array_values9.push(data9[key])
       }
+      
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
@@ -45,7 +46,7 @@ love_with_id = function(friend_id){
             labelAlign: 'center'
       },
       {
-        value : array_values9[3],
+        value : 0,//array_values9[3],
         color : "#E2EAE9",
         label : 'In a relationship',
             labelColor : 'white',
@@ -53,7 +54,7 @@ love_with_id = function(friend_id){
             labelAlign: 'center'
       },
       {
-        value : array_values9[4],
+        value : 0,//array_values9[4],
         color : "#D4CCC5",
         label : 'Engaged',
             labelColor : 'white',
@@ -64,6 +65,7 @@ love_with_id = function(friend_id){
 
     //Create the chart
     new Chart(ctx9).Pie(data9);
+    
   });
 }
 
@@ -72,8 +74,10 @@ love = function(){
     .done(function(data9){
     var array_values9= new Array();
       for (var key in data9) {
+        console.log(data9[key]);
         array_values9.push(data9[key])
       }
+      
 
     //////////////////////PIE GRAPH//////////////////////
     //Get context with jQuery - using jQuery's .get() method.
@@ -106,7 +110,7 @@ love = function(){
             labelAlign: 'center'
       },
       {
-        value : array_values9[3],
+        value : 0,//array_values9[3],
         color : "#E2EAE9",
         label : 'In a relationship',
             labelColor : 'white',
@@ -114,7 +118,7 @@ love = function(){
             labelAlign: 'center'
       },
       {
-        value : array_values9[4],
+        value : 0,//array_values9[4],
         color : "#D4CCC5",
         label : 'Engaged',
             labelColor : 'white',
@@ -125,6 +129,7 @@ love = function(){
 
     //Create the chart
     new Chart(ctx9).Pie(data9);
+
   });
 }
 
