@@ -28,8 +28,9 @@
 $(document).ready(function() {
 	setTimeout(
 		function(){
-			console.log("Hello, world!");
-			window.location.reload();		
+			if($("#reload").html() == "0"){
+				window.location.reload();
+			}
 		}
 		, 30000);
 });

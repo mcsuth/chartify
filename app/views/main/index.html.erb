@@ -1,4 +1,11 @@
 <div id="yield">
+  <span id="reload" style="display: none;">
+    <% if current_user.user_data %>
+      <%= 1 %>
+    <% else %>
+      <%= 0 %>
+    <% end %>
+  <span>
   <div class="chart-box">
     <div id="bullet-head">
       <h1>Top 5 Likers</h1>
