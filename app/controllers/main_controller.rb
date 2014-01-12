@@ -1,16 +1,24 @@
 class MainController < ApplicationController
 
   def worker
-    HardWorker.perform_async(current_user.id);
-    redirect_to root_path
+    if current_user
+      HardWorker.perform_async(current_user.id);
+    end
+    render redirect_to charts_path
   end
 
   def index
-    unless current_user
-      redirect_to login_path
-    end
     if current_user
       HardWorker.perform_async(current_user.id);
+      redirect_to charts_path
+    else
+      redirect_to login_path
+    end
+  end
+
+  def charts
+    unless current_user
+      redirect_to login_path
     end
   end
 
