@@ -81,6 +81,7 @@ html {
   padding-right: 3em;
   background-color: rgba(242,242,242,0.7);
   width: 80%;
+  top: 100px;
   -moz-border-radius-topleft: 6px;
   border-top-left-radius: 6px;
   -moz-border-radius-bottomleft: 6px;
