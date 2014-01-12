@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20131115021558) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "profile_picture"
     t.string   "provider"
     t.string   "uid"
     t.string   "name"

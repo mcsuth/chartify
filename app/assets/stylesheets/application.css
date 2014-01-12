@@ -31,10 +31,6 @@ body, html {
 html {
 }
 
-/*#logo {
-  margin-bottom: 3em;
-}*/
-
 .container {
   position: relative;
   height: 100%;
@@ -66,7 +62,12 @@ html {
   padding-top: 30px;
   position: relative;
   display: block;
-  background-image:url('background.png');
+  background-position: center;
+  background: url(background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
